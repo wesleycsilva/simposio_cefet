@@ -44,13 +44,13 @@ Header
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#about">Sobre</a></li>
+<!--                <li class="active"><a href="#intro">Home</a></li>-->
+                <li class="active"><a href="#about">Sobre</a></li>
                 <li><a href="#team">Palestrantes</a></li>
                 <li><a href="#features">Visitas Técnicas</a></li>
-                <li><a href="#pricing">Agenda</a></li>
+                <li><a href="#pricing">Programação</a></li>
                 <li><a href="#services">Inscrições</a></li>
-                <li><a href="#why-us">Ajuda</a></li>
+<!--                <li><a href="#why-us">Ajuda</a></li>-->
                 <li><a href="#footer">Contato</a></li>
             </ul>
         </nav><!-- .main-nav -->
@@ -259,74 +259,102 @@ Header
     <section id="pricing" class="wow fadeInUp section-bg">
         <div class="container">
             <header class="section-header">
-                <h3>Agenda</h3>
-                <p>Confira abaixo a programação do <strong>I° Simpósio de Engenharia Civil
+                <h3>Programação</h3>
+                <p>Confira abaixo a agenda do <strong>I° Simpósio de Engenharia Civil
                         Materiais, Sustentabilidade e Inovações Tecnológicas</strong>.
 
                     </br></br>*Sujeita a alterações.</p>
             </header>
 
-            <div class="row flex-items-xs-middle flex-items-xs-center">
+            <div class="row flex-items-xs- flex-items-xs-center">
 
                 <!-- Basic Plan  -->
-                <div class="col-xs-12 col-lg-4">
+                <div class="col-xs-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <h3><span class="currency">*</span>08<span class="period">/agosto</span></h3>
                         </div>
                         <div class="card-block">
-                            <h4 class="card-title">
-                                Basic Plan
-                            </h4>
+                            <h4 class="card-title"><strong>Local: </strong>Anfiteatro do Centro Federal de Educação
+                                Tecnológico de Minas
+                                Gerais, CEFETMG, Campus Varginha.</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Odio animi voluptates</li>
-                                <li class="list-group-item">Inventore quisquam et</li>
-                                <li class="list-group-item">Et perspiciatis suscipit</li>
-                                <li class="list-group-item">24/7 Support System</li>
+                                <li class="list-group-item">Recepção e Credenciamento - Horário: 17:00 às 17:30 horas
+                                </li>
+                                <li class="list-group-item">Jantar - Horário: 17:30 às 18:30 horas</li>
+                                <li class="list-group-item">Abertura do evento - Horário: 18:50 às 19:00 horas<br>
+                                    Prof. Conrado de Souza Rodrigues - Diretor de Pesquisa e Pós-Graduação do CEFETMG
+                                </li>
+                                <li class="list-group-item">Palestra 1: Construções Pré-Colombianas das Américas -
+                                    Horário: 19:00 às 20:10 horas<br>
+                                    Prof. José Celso da Cunha - Engenheiro civil e escritor no âmbito de engenharia e
+                                    arquitetura.
+                                </li>
+                                <li class="list-group-item">Palestra 2: Concreto Reforçado com Fibras de Aço:
+                                    Propriedades, Aplicações
+                                    e Perspectivas para o Futuro. - Horário: 20:30 às 21:40 horas <br>
+                                    Eng. Romário de Souza Lima
+                                    Belgo Bekaert
+                                </li>
                             </ul>
-                            <a href="#" class="btn">Choose Plan</a>
+                            <a href="#services" class="btn">Inscreva-se</a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <br>
+            <div class="row flex-items-xs-middle flex-items-xs-center">
 
                 <!-- Regular Plan  -->
-                <div class="col-xs-12 col-lg-4">
+                <div class="col-xs-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <h3><span class="currency">*</span>09<span class="period">/agosto</span></h3>
                         </div>
                         <div class="card-block">
-                            <h4 class="card-title">
-                                Regular Plan
-                            </h4>
+                            <h4 class="card-title">Local: Hall da Biblioteca do CEFETMG, Campus Varginha
+                                Horário: 14:30 às 16:30 horas</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Odio animi voluptates</li>
-                                <li class="list-group-item">Inventore quisquam et</li>
-                                <li class="list-group-item">Et perspiciatis suscipit</li>
-                                <li class="list-group-item">24/7 Support System</li>
+                                <li class="list-group-item">Visita técnica 1: Pedreira Santo Antônio</li>
+                                <li class="list-group-item">Visita técnica 2: ECOVIA – Reciclagem de Resíduos da
+                                    Construção Civil Ltda.
+                                </li>
+                                <li class="list-group-item">Jantar - Horário: 17:30 às 18:30 horas</li>
+                                <li class="list-group-item">Palestra 1: Inovações, Tecnologia e Sustentabilidade nas
+                                    Construções em
+                                    Madeira. - Horário: 19:00 às 20:10 horas<br>
+                                    Prof. Francisco Carlos Gomes - Universidade Federal de Lavras - UFLA
+                                </li>
+                                <li class="list-group-item">Palestra 2: Resíduos Agroindustriais para a Produção de
+                                    Cimentos de Baixo
+                                    Impacto Ambiental - Horário: 20:30 às 21:40 horas<br>
+                                    Prof. Conrado de Souza Rodrigues - Centro Federal de Educação Tecnológica de Minas
+                                    Gerais (CEFETMG)
+                                </li>
                             </ul>
-                            <a href="#" class="btn">Choose Plan</a>
+                            <a href="#services" class="btn">Inscreva-se</a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <br>
+            <div class="row flex-items-xs-middle flex-items-xs-center">
 
                 <!-- Premium Plan  -->
-                <div class="col-xs-12 col-lg-4">
+                <div class="col-xs-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <h3><span class="currency">*</span>12<span class="period">/agosto</span></h3>
                         </div>
                         <div class="card-block">
-                            <h4 class="card-title">
-                                Premium Plan
-                            </h4>
+                            <h4 class="card-title">Visita ao Lar São Vicente de Paula - Varginha/MG</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Odio animi voluptates</li>
-                                <li class="list-group-item">Inventore quisquam et</li>
-                                <li class="list-group-item">Et perspiciatis suscipit</li>
-                                <li class="list-group-item">24/7 Support System</li>
+                                <li class="list-group-item">Horário: 17:30 às 18:30 horas</li>
+<!--                                <li class="list-group-item">Inventore quisquam et</li>-->
+<!--                                <li class="list-group-item">Et perspiciatis suscipit</li>-->
+<!--                                <li class="list-group-item">24/7 Support System</li>-->
                             </ul>
-                            <a href="#" class="btn">Choose Plan</a>
+                            <a href="#" class="btn">Visite o site</a>
                         </div>
                     </div>
                 </div>
@@ -354,11 +382,17 @@ Header
 
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
                     <div class="box">
-                        <div class="icon" style="background: #e1eeff;"><i class="ion-ios-calendar-outline"
-                                                                          style="color: #2282ff;"></i></div>
+                        <div class="icon" style="background: #e1eeff;">
+                            <i class="ion-ios-calendar-outline"style="color: #2282ff;"></i>
+                        </div>
                         <h4 class="title"><a href="">1° Chamada</a></h4>
                         <h6 class="description text-center">De 01/07 até 06/07/2019 </br> Inscrições abertas para
-                            discentes a partir do <strong>6° período</strong> do curso.</h6>
+                            discentes a partir do <strong>6° período</strong> do curso.
+                        </h6>
+                        <div class="">
+                            <a href="#services" class="btn btn-info">Cadastre-se</a>
+                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
@@ -367,7 +401,13 @@ Header
                                                                           style="color: #3fcdc7;"></i></div>
                         <h4 class="title"><a href="">2° Chamada</a></h4>
                         <h6 class="description text-center">De 07/07 até 12/07/2019 </br> Inscrições abertas para
-                            discentes dos <strong>demais períodos </strong> do curso.</h6>
+                            discentes dos <strong>demais períodos </strong> do curso.
+                        </h6>
+                        <div class="">
+<!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
+<!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
+                            <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
+                        </div>
                     </div>
                 </div>
 
@@ -377,7 +417,12 @@ Header
                                                                           style="color: #e98e06;"></i></div>
                         <h4 class="title"><a href="">3° Chamada</a></h4>
                         <h6 class="description text-center">A partir de 13/07/2019 </br> Inscrições abertas apenas no
-                            caso de <strong>vagas remanescentes</strong>.</h6>
+                            caso de <strong>vagas remanescentes</strong>.
+                        </h6>
+                        <div class="">
+                            <a href="#services" class="btn btn-info">Cadastre-se</a>
+                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -425,7 +470,8 @@ Header
                         <div class="features wow bounceInUp clearfix">
                             <i class="fa fa-heart" style="color: #f058dc;"></i>
                             <h4>Missão</h4>
-                            <p class="text-justify">Amparar e proteger pessoas idosas, assegurar seu bem-estar, defender sua dignidade,
+                            <p class="text-justify">Amparar e proteger pessoas idosas, assegurar seu bem-estar, defender
+                                sua dignidade,
                                 reduzir os fatores de risco comuns nessa fase da vida, oferecer atendimento de qualidade
                                 e trabalhar o resgate da identidade e seu protagonismo.</p>
                         </div>
@@ -448,10 +494,10 @@ Header
                     <span data-toggle="counter-up">42</span>
                     <p>Sexo Feminino</p>
                 </div>
-<!--                <div class="col-lg-3 col-6 text-center">-->
-<!--                    <span data-toggle="counter-up">18</span>-->
-<!--                    <p>Hard Workers</p>-->
-<!--                </div>-->
+                <!--                <div class="col-lg-3 col-6 text-center">-->
+                <!--                    <span data-toggle="counter-up">18</span>-->
+                <!--                    <p>Hard Workers</p>-->
+                <!--                </div>-->
             </div>
         </div>
     </section>
@@ -648,7 +694,7 @@ Header
 <!--==========================
   Footer
 ============================-->
-<?php include "rodape.php"?>
+<?php include "rodape.php" ?>
 <!-- #footer -->
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
