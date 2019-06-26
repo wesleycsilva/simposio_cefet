@@ -44,13 +44,13 @@ Header
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-<!--                <li class="active"><a href="#intro">Home</a></li>-->
+                <!--                <li class="active"><a href="#intro">Home</a></li>-->
                 <li class="active"><a href="#about">Sobre</a></li>
                 <li><a href="#team">Palestrantes</a></li>
                 <li><a href="#features">Visitas Técnicas</a></li>
                 <li><a href="#pricing">Programação</a></li>
                 <li><a href="#services">Inscrições</a></li>
-<!--                <li><a href="#why-us">Ajuda</a></li>-->
+                <!--                <li><a href="#why-us">Ajuda</a></li>-->
                 <li><a href="#footer">Contato</a></li>
             </ul>
         </nav><!-- .main-nav -->
@@ -90,7 +90,7 @@ Header
             <div class="row">
                 <div class="col-lg-5 col-md-6">
                     <div class="about-img">
-                        <img src="img/about-img.jpg" alt="">
+                        <img src="img/mundo_simposio.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6">
@@ -144,7 +144,9 @@ Header
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
                     <a href="#" data-toggle="modal" data-target="#modalConrado">
                         <div class="member">
+
                             <img src="img/conrado.jpeg" class="img-fluid" alt="">
+
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Prof. Conrado de Souza Rodrigues</h4>
@@ -157,7 +159,9 @@ Header
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a href="#" data-toggle="modal" data-target="#modalFrancisco">
                         <div class="member">
-                            <img src="img/francisco.jpeg" class="img-fluid" alt="">
+                            <div class="h-100 bg-danger">
+                                <img src="img/francisco.jpeg" class="img-fluid" alt="">
+                            </div>
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Prof. Francisco Carlos Gomes</h4>
@@ -350,9 +354,9 @@ Header
                             <h4 class="card-title">Visita ao Lar São Vicente de Paula - Varginha/MG</h4>
                             <ul class="list-group">
                                 <li class="list-group-item">Horário: 17:30 às 18:30 horas</li>
-<!--                                <li class="list-group-item">Inventore quisquam et</li>-->
-<!--                                <li class="list-group-item">Et perspiciatis suscipit</li>-->
-<!--                                <li class="list-group-item">24/7 Support System</li>-->
+                                <!--                                <li class="list-group-item">Inventore quisquam et</li>-->
+                                <!--                                <li class="list-group-item">Et perspiciatis suscipit</li>-->
+                                <!--                                <li class="list-group-item">24/7 Support System</li>-->
                             </ul>
                             <a href="#" class="btn">Visite o site</a>
                         </div>
@@ -383,7 +387,7 @@ Header
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
                     <div class="box">
                         <div class="icon" style="background: #e1eeff;">
-                            <i class="ion-ios-calendar-outline"style="color: #2282ff;"></i>
+                            <i class="ion-ios-calendar-outline" style="color: #2282ff;"></i>
                         </div>
                         <h4 class="title"><a href="">1° Chamada</a></h4>
                         <h6 class="description text-center">De 01/07 até 06/07/2019 </br> Inscrições abertas para
@@ -404,8 +408,8 @@ Header
                             discentes dos <strong>demais períodos </strong> do curso.
                         </h6>
                         <div class="">
-<!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
-<!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
+                            <!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
+                            <!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
                         </div>
                     </div>
