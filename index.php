@@ -44,13 +44,11 @@ Header
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <!--                <li class="active"><a href="#intro">Home</a></li>-->
                 <li class="active"><a href="#about">Sobre</a></li>
                 <li><a href="#team">Palestrantes</a></li>
                 <li><a href="#features">Visitas Técnicas</a></li>
                 <li><a href="#pricing">Programação</a></li>
                 <li><a href="#services">Inscrições</a></li>
-                <!--                <li><a href="#why-us">Ajuda</a></li>-->
                 <li><a href="#footer">Contato</a></li>
             </ul>
         </nav><!-- .main-nav -->
@@ -90,7 +88,7 @@ Header
             <div class="row">
                 <div class="col-lg-5 col-md-6">
                     <div class="about-img">
-                        <img src="img/mundo_simposio.png" alt="">
+                        <!--                        <img src="img/mundo_simposio.png" alt="">-->
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6">
@@ -358,7 +356,7 @@ Header
                                 <!--                                <li class="list-group-item">Et perspiciatis suscipit</li>-->
                                 <!--                                <li class="list-group-item">24/7 Support System</li>-->
                             </ul>
-                            <a href="#" class="btn">Visite o site</a>
+                            <a href="http://www.larsaovicentevga.org.br/instituicao/" class="btn" target="_blank">Visite o site</a>
                         </div>
                     </div>
                 </div>
@@ -367,73 +365,6 @@ Header
         </div>
 
     </section><!-- #pricing -->
-
-    <!--==========================
-      Services Section
-    ============================-->
-    <section id="services" class="section-bg">
-        <div class="container">
-
-            <header class="section-header">
-                <h3>Inscrições</h3>
-                <p>As vagas para o <strong>I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações
-                        Tecnológicas</strong> são limitadas.</br></br>
-                    Dúvidas sobre o evento, fale conosco no e-mail </br>urashima@cefetmg.br ou mag@cefetmg.br
-                </p>
-            </header>
-
-            <div class="row">
-
-                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="box">
-                        <div class="icon" style="background: #e1eeff;">
-                            <i class="ion-ios-calendar-outline" style="color: #2282ff;"></i>
-                        </div>
-                        <h4 class="title"><a href="">1° Chamada</a></h4>
-                        <h6 class="description text-center">De 01/07 até 06/07/2019 </br> Inscrições abertas para
-                            discentes a partir do <strong>6° período</strong> do curso.
-                        </h6>
-                        <div class="">
-                            <a href="#services" class="btn btn-info">Cadastre-se</a>
-                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="box">
-                        <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-calendar-outline"
-                                                                          style="color: #3fcdc7;"></i></div>
-                        <h4 class="title"><a href="">2° Chamada</a></h4>
-                        <h6 class="description text-center">De 07/07 até 12/07/2019 </br> Inscrições abertas para
-                            discentes dos <strong>demais períodos </strong> do curso.
-                        </h6>
-                        <div class="">
-                            <!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
-                            <!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
-                            <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                    <div class="box">
-                        <div class="icon" style="background: #fff0da;"><i class="ion-ios-calendar-outline"
-                                                                          style="color: #e98e06;"></i></div>
-                        <h4 class="title"><a href="">3° Chamada</a></h4>
-                        <h6 class="description text-center">A partir de 13/07/2019 </br> Inscrições abertas apenas no
-                            caso de <strong>vagas remanescentes</strong>.
-                        </h6>
-                        <div class="">
-                            <a href="#services" class="btn btn-info">Cadastre-se</a>
-                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- #services -->
-
 
     <!--==========================
       Why Us Section
@@ -505,6 +436,76 @@ Header
             </div>
         </div>
     </section>
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services" class="section-bg">
+        <div class="container">
+
+            <header class="section-header">
+                <h3>Inscrições</h3>
+                <p>As vagas para o <strong>I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações
+                        Tecnológicas</strong> são limitadas.</br></br>
+                    Dúvidas sobre o evento, fale conosco no e-mail </br>urashima@cefetmg.br ou mag@cefetmg.br
+                </p>
+            </header>
+
+            <div class="row">
+
+                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="box">
+                        <div class="icon" style="background: #e1eeff;">
+                            <i class="ion-ios-calendar-outline" style="color: #2282ff;"></i>
+                        </div>
+                        <h4 class="title"><a href="">1° Chamada</a></h4>
+                        <h6 class="description text-center">De 01/07 até 06/07/2019 </br> Inscrições abertas para
+                            discentes a partir do <strong>6° período</strong> do curso.
+                        </h6>
+                        <div class="">
+                            <a href="cadastrar.php" class="btn btn-info">Cadastre-se</a>
+                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="box">
+                        <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-calendar-outline"
+                                                                          style="color: #3fcdc7;"></i></div>
+                        <h4 class="title"><a href="">2° Chamada</a></h4>
+                        <h6 class="description text-center">De 07/07 até 12/07/2019 </br> Inscrições abertas para
+                            discentes dos <strong>demais períodos </strong> do curso.
+                        </h6>
+                        <div class="">
+                            <!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
+                            <!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
+                            <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                    <div class="box">
+                        <div class="icon" style="background: #fff0da;"><i class="ion-ios-calendar-outline"
+                                                                          style="color: #e98e06;"></i></div>
+                        <h4 class="title"><a href="">3° Chamada</a></h4>
+                        <h6 class="description text-center">A partir de 13/07/2019 </br> Inscrições abertas apenas no
+                            caso de <strong>vagas remanescentes</strong>.
+                        </h6>
+                        <div class="">
+                            <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
+<!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
+<!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- #services -->
+
+
+
 
     <!--==========================
       Call To Action Section
@@ -673,16 +674,15 @@ Header
                         <h3>Eng. Romário de Souza Lima</h3>
                         <h4>Belgo Bekaert</h4>
                         <p class="text-justify">
-                             Engenheiro Civil graduado pela Universidade FUMEC, especialista em Construção Civil com
-                            ênfase em Sustentabilidade e Gestão do Ambiente Construído pela Universidade Federal de
-                            Minas Gerais (UFMG) e mestrando em Construção Civil pela UFMG. Possui experiências
-                            acadêmicas em Monitoria e bolsista de Iniciação Científica pela FAPEMIG com estudos
-                            relacionados a ensaios não destrutivos e controle tecnológico do concreto. Atualmente é
-                            Engenheiro de Aplicação na Belgo Bekaert Arames exercendo funções relacionadas ao
-                            desenvolvimento de soluções, mercado e aplicação dos produtos nos segmentos da construção
+                             Engenheiro Civil graduado pela Universidade FUMEC (2015), especialista em Construção Civil
+                            com ênfase em Sustentabilidade e Gestão do Ambiente Construído pela Universidade Federal de
+                            Minas Gerais (UFMG) e mestrando em Construção Civil pela UFMG (a partir de 2018). Possui
+                            experiências acadêmicas em Monitoria e bolsista de Iniciação Científica pela FAPEMIG com
+                            estudos relacionados a ensaios não destrutivos e controle tecnológico do concreto.
+                            Atualmente é Engenheiro de Aplicação na Belgo Bekaert Arames exercendo funções relacionadas
+                            ao desenvolvimento de soluções, mercado e aplicação dos produtos nos segmentos da construção
                             civil, fundamentalmente nos segmentos de Alvenaria, Fibras de Aço, Gabiões, Fios/Cordoalhas
                             para protensão e reforços em malhas especiais para contenção de taludes e túneis.
-
                         </p>
                     </div>
                 </div>

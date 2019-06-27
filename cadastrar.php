@@ -44,13 +44,11 @@ Header
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.php#intro">Home</a></li>
                 <li><a href="index.php#about">Sobre</a></li>
                 <li><a href="index.php#team">Palestrantes</a></li>
                 <li><a href="index.php#features">Visitas Técnicas</a></li>
-                <li><a href="index.php#pricing">Agenda</a></li>
+                <li><a href="index.php#pricing">Programação</a></li>
                 <li><a href="index.php#services">Inscrições</a></li>
-                <li><a href="index.php#why-us">Ajuda</a></li>
                 <li><a href="#footer">Contato</a></li>
             </ul>
         </nav><!-- .main-nav -->
@@ -171,13 +169,11 @@ Header
                             <div class="footer-links">
                                 <h4>Links</h4>
                                 <ul>
-                                    <li class="active"><a href="index.php#intro">Home</a></li>
                                     <li><a href="index.php#about">Sobre</a></li>
                                     <li><a href="index.php#team">Palestrantes</a></li>
                                     <li><a href="index.php#features">Visitas Técnicas</a></li>
-                                    <li><a href="index.php#pricing">Agenda</a></li>
+                                    <li><a href="index.php#pricing">Programação</a></li>
                                     <li><a href="index.php#services">Inscrições</a></li>
-                                    <li><a href="index.php#why-us">Ajuda</a></li>
                                     <li><a href="index.php#footer">Contato</a></li>
                                 </ul>
                             </div>
