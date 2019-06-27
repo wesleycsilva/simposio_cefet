@@ -87,8 +87,8 @@ Header
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-6">
-                    <div class="about-img">
-                        <!--                        <img src="img/mundo_simposio.png" alt="">-->
+                    <div class="">
+                        <img src="img/simposio_logo.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6">
@@ -154,7 +154,7 @@ Header
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-md-6 wow fadeInUp bg-danger" data-wow-delay="0.1s">
                     <a href="#" data-toggle="modal" data-target="#modalFrancisco">
                         <div class="member">
                             <div class="h-100 bg-danger">
@@ -356,7 +356,8 @@ Header
                                 <!--                                <li class="list-group-item">Et perspiciatis suscipit</li>-->
                                 <!--                                <li class="list-group-item">24/7 Support System</li>-->
                             </ul>
-                            <a href="http://www.larsaovicentevga.org.br/instituicao/" class="btn" target="_blank">Visite o site</a>
+                            <a href="http://www.larsaovicentevga.org.br/instituicao/" class="btn" target="_blank">Visite
+                                o site</a>
                         </div>
                     </div>
                 </div>
@@ -494,8 +495,8 @@ Header
                         </h6>
                         <div class="">
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
-<!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
-<!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
+                            <!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
+                            <!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
                         </div>
                     </div>
                 </div>
@@ -503,8 +504,6 @@ Header
 
         </div>
     </section><!-- #services -->
-
-
 
 
     <!--==========================
