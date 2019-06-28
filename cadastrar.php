@@ -1,5 +1,11 @@
+<?php 
+require_once("classes/Simposista.php");
+$simposista = new Simposista();
+require_once("classes/Funcao.php");
+$funcao = new Funcao();
+ ?>
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>Simpósio Cefet</title>
@@ -27,7 +33,7 @@
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
-
+</head>
 <body>
 <!--==========================
 Header
@@ -44,11 +50,13 @@ Header
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
+                <li class="active"><a href="index.php#intro">Home</a></li>
                 <li><a href="index.php#about">Sobre</a></li>
                 <li><a href="index.php#team">Palestrantes</a></li>
                 <li><a href="index.php#features">Visitas Técnicas</a></li>
-                <li><a href="index.php#pricing">Programação</a></li>
+                <li><a href="index.php#pricing">Agenda</a></li>
                 <li><a href="index.php#services">Inscrições</a></li>
+                <li><a href="index.php#why-us">Ajuda</a></li>
                 <li><a href="#footer">Contato</a></li>
             </ul>
         </nav><!-- .main-nav -->
@@ -56,98 +64,99 @@ Header
     </div>
 </header><!-- #header -->
 
-<main id="main">
-    <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <h3>Cadastre-se</h3>
-                <p>Cadastre-se para se inscrever nas atividades do Simpósio!</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <h4>I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações Tecnológicas </h4>
-                    <p>Para facilitar sua inscrição, por favor, cadastre-se.</p>
-                </div>
-            </div>
-            <div class="form">
-                <form action="" method="post" role="form" class="contactForm">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" name="nome" class="form-control" id="nome" placeholder="Seu Nome"
-                                       data-rule="minlen:10" data-msg="Por favor, insira pelo menos 10 caracteres"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="matricula" id="matricula"
-                                       data-rule="required"
-                                       data-msg="Por favor, insira sua matrícula" placeholder="Matricula"></input>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="Seu e-mail"
-                                       data-rule="email" data-msg="Por favor, digite um e-mail válido"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="emailConfirmacao" id="emailConfirmacao"
-                                       placeholder="Confirme seu e-mail" data-rule="email"
-                                       data-msg="Por favor, digite um e-mail válido"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="date" class="form-control" name="dataNascimento" id="dataNascimento"
-                                       data-rule="required"
-                                       data-msg="Por favor, digite um data válida"
-                                       placeholder="Data de nascimento"></input>
-                                <div class="validation"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF"
-                                       data-rule="minlen:11" data-msg="Por favor, digite um CPF válido"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="rg" id="rg" placeholder="RG"
-                                       data-rule="required" data-msg="Por favor, digite um RG válido"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="telefone" id="telefone"
-                                       placeholder="Telefone" data-rule="minlen:11"
-                                       data-msg="Por favor, digite um número de celular válido"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" class="form-control" id="password"
-                                       placeholder="Senha"
-                                       data-rule="minlen:6" data-msg="Por favor, insira pelo menos 6 caracteres"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="passwordConfirmacao" class="form-control"
-                                       id="passwordConfirmacao" placeholder="Confirme sua senha"
-                                       data-rule="minlen:6" data-msg="Por favor, insira pelo menos 6 caracteres"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div id="errormessage"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="text-center">
-                                <button type="submit" title="Cadastrar" class="btn btn-info">Cadastrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
 
+<main id="main">
+<section id="about">
+  <div class="container">
+  <div class="section-header">
+      <h3>Cadastre-se</h3>
+      <p>Cadastre-se para se inscrever nas atividades do Simpósio!</p>
+  </div>
+  <div class="row">
+      <div class="col-lg-12 col-md-12">
+          <h4>I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações Tecnológicas </h4>
+          <p>Para facilitar sua inscrição, por favor, cadastre-se.</p>
+      </div>
+  </div>
+  <div class="form">
+    <form action="classes/cadastrarSimposista.php" method="POST" role="form" class="contactForm">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+              <input type="text" name="nome" class="form-control" id="nome" placeholder="Seu Nome"
+                     data-rule="minlen:10" data-msg="Por favor, insira pelo menos 10 caracteres"/>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" name="matricula" id="matricula"
+                     data-rule="required"
+                     data-msg="Por favor, insira sua matrícula" placeholder="Matricula"></input>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+              <input type="email" class="form-control" name="email" id="email"
+                     placeholder="Seu e-mail"
+                     data-rule="email" data-msg="Por favor, digite um e-mail válido"/>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+              <input type="email" class="form-control" name="confirmaEmail" id="confirmaEmail"
+                     placeholder="Confirme seu e-mail" data-rule="email"
+                     data-msg="Por favor, digite um e-mail válido"/>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+              <input type="date" class="form-control" name="dataNascimento" id="dataNascimento"
+                     data-rule="required"
+                     data-msg="Por favor, digite um data válida"
+                     placeholder="Data de nascimento"></input>
+              <div class="validation"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+              <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF"  
+                     data-rule="minlen:11" data-msg="Por favor, digite um CPF válido"/>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" name="rg" id="rg" placeholder="RG"
+                     data-rule="required" data-msg="Por favor, digite um RG válido"/>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" name="telefone" id="telefone"
+                     placeholder="Telefone" data-rule="minlen:11"
+                     data-msg="Por favor, digite um número de celular válido"/>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+              <input type="password" name="senha" class="form-control" id="senha"
+                     placeholder="Senha"
+                     data-rule="minlen:6" data-msg="Por favor, insira pelo menos 6 caracteres"/>
+              <div class="validation"></div>
+          </div>
+          <div class="form-group">
+            <input type="password" name="confirmaSenha" class="form-control"
+                   id="confirmaSenha" placeholder="Confirme sua senha"
+                   data-rule="minlen:6" data-msg="Por favor, insira pelo menos 6 caracteres"/>
+            <div class="validation"></div>
+          </div>
+          <div id="errormessage"></div>     
+        </div>        
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <br>
+        <div class="text-center">
+          <button type="submit" title="cadastrar" class="btn btn-info">Cadastrar</button>
+        </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+</section>
 </main>
 
 <!--==========================
@@ -169,11 +178,13 @@ Header
                             <div class="footer-links">
                                 <h4>Links</h4>
                                 <ul>
+                                    <li class="active"><a href="index.php#intro">Home</a></li>
                                     <li><a href="index.php#about">Sobre</a></li>
                                     <li><a href="index.php#team">Palestrantes</a></li>
                                     <li><a href="index.php#features">Visitas Técnicas</a></li>
-                                    <li><a href="index.php#pricing">Programação</a></li>
+                                    <li><a href="index.php#pricing">Agenda</a></li>
                                     <li><a href="index.php#services">Inscrições</a></li>
+                                    <li><a href="index.php#why-us">Ajuda</a></li>
                                     <li><a href="index.php#footer">Contato</a></li>
                                 </ul>
                             </div>
