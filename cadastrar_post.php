@@ -12,7 +12,7 @@ try {
     $senha = $_POST['password'];
 
     $simposista = new Simposista();
-    $funcao = new Funcao();
+    $funcao = new FuncaoUser();
 
     $simposista->nome = $nome;
     $simposista->matricula = $matricula;

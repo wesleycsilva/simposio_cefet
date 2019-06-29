@@ -19,7 +19,7 @@ class Produto
     public function carregar()
     {
         $query = "SELECT nome, preco, quantidade, categoria_id FROM produtos WHERE id = :id";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id', $this->id);
         $stmt->execute();
@@ -36,7 +36,7 @@ class Produto
                   FROM produtos p
                   INNER JOIN categorias c ON p.categoria_id = c.id
                   ORDER BY p.nome ";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $resultado = $conexao->query($query);
         $lista = $resultado->fetchAll();
         return $lista;
@@ -45,7 +45,7 @@ class Produto
     public static function listarPorCategoria($categoria_id)
     {
         $query = "SELECT id, nome, preco, quantidade FROM produtos WHERE categoria_id = :categoria_id";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':categoria_id', $categoria_id);
         $stmt->execute();
@@ -56,7 +56,7 @@ class Produto
     {
         $query = "INSERT INTO produtos (nome, preco, quantidade, categoria_id)
                   VALUES (:nome, :preco, :quantidade, :categoria_id)";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':nome', $this->nome);
         $stmt->bindValue(':preco', $this->preco);
@@ -68,7 +68,7 @@ class Produto
     public function atualizar()
     {
         $query = "UPDATE produtos SET nome = :nome, preco = :preco, quantidade = :quantidade, categoria_id = :categoria_id WHERE id = :id";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':nome', $this->nome);
         $stmt->bindValue(':preco', $this->preco);
@@ -81,7 +81,7 @@ class Produto
     public function excluir()
     {
         $query = "DELETE FROM produtos WHERE id = :id";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue('id', $this->id);
         $stmt->execute();

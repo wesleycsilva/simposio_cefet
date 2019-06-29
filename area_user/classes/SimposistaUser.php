@@ -1,6 +1,6 @@
 <?php
 
-class Simposista
+class SimposistaUser
 {
     private $pdo;
     public $msgErro = "";
@@ -25,7 +25,7 @@ class Simposista
 
     public function carregar()
     {
-        $query = "SELECT nome, matricula, email, dataNascimento, cpf, rg, telefone, senha FROM simposista WHERE id = :id";
+        $query = "SELECT nome, matricula, email, dataNascimento, cpf, rg, telefone, senha FROM simposista WHERE idSimposista = :id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id', $this->id);

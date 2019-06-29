@@ -18,7 +18,7 @@ class Categoria
     public static function listar()
     {
         $query = "SELECT id, nome FROM categorias ORDER BY nome";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $resultado = $conexao->query($query);
         $lista = $resultado->fetchAll();
         return $lista;
@@ -27,7 +27,7 @@ class Categoria
     public function carregar()
     {
         $query = "SELECT id, nome FROM categorias WHERE id = :id";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id', $this->id);
         $stmt->execute();
@@ -38,7 +38,7 @@ class Categoria
     public function inserir()
     {
         $query = "INSERT INTO categorias (nome) VALUES (:nome)";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':nome', $this->nome);
         $stmt->execute();
@@ -47,7 +47,7 @@ class Categoria
     public function atualizar()
     {
         $query = "UPDATE categorias set nome = :nome WHERE id = :id";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':nome', $this->nome);
         $stmt->bindValue(':id', $this->id);
@@ -57,7 +57,7 @@ class Categoria
     public function excluir()
     {
         $query = "DELETE FROM categorias WHERE id = :id";
-        $conexao = Conexao::pegarConexao();
+        $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id', $this->id);
         $stmt->execute();

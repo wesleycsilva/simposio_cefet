@@ -4,7 +4,7 @@
 require_once("Simposista.php");
 $simposista = new Simposista();
 require_once("Funcao.php");
-$funcao = new Funcao();
+$funcao = new FuncaoUser();
 $listaSimp = $simposista->listar();
 //verificar se clicou no botao
 $nomel = addslashes($_POST['nome']);
