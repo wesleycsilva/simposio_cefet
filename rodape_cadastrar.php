@@ -19,13 +19,12 @@
                             <div class="footer-links">
                                 <h4>Links</h4>
                                 <ul>
-                                    <li><a href="#about">Sobre</a></li>
-                                    <li><a href="#team">Palestrantes</a></li>
-                                    <li><a href="#features">Visitas Técnicas</a></li>
-                                    <li><a href="#pricing">Programação</a></li>
-                                    <li><a href="#services">Inscrições</a></li>
-                                    <li><a href="#footer">Contato</a></li>
-                                    <li><a href="login.php">Login</a></li>
+                                    <li><a href="index.php#about">Sobre</a></li>
+                                    <li><a href="index.php#team">Palestrantes</a></li>
+                                    <li><a href="index.php#features">Visitas Técnicas</a></li>
+                                    <li><a href="index.php#pricing">Programação</a></li>
+                                    <li><a href="index.php#services">Inscrições</a></li>
+                                    <li><a href="index.php#footer">Contato</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -81,8 +80,8 @@
         </div>
     </div>
 </footer>
-<!-- #footer -->
 
+<!-- #footer -->
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <!-- Uncomment below i you want to use a preloader -->
 <!-- <div id="preloader"></div> -->
@@ -90,6 +89,10 @@
 <!-- JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/jquery/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>-->
 <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/mobile-nav/mobile-nav.js"></script>
@@ -107,3 +110,5 @@
 
 </body>
 </html>
+
+
