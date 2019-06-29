@@ -951,6 +951,26 @@ h6 {
   overflow: hidden;
 }
 
+#team .palestrante-conrado {
+  margin-left: calc(-1.7vw + 2%);
+  margin-right: calc(-1.7vw + 2%);
+}
+
+#team .palestrante-francisco {
+  margin-left: calc(-7.7vw + 7%);
+  margin-right: calc(-7.7vw + 7%);
+}
+
+#team .palestrante-jose {
+  margin-left: calc(-0.3vw + 2%);
+  margin-right: calc(-0.3vw + 2%);
+}
+
+#team .palestrante-romario {
+  margin-left: calc(-1vw + 1%);
+  margin-right: calc(-1vw + 1%);
+}
+
 #team .member .member-info {
   display: -webkit-box;
   display: -webkit-flex;

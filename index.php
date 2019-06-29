@@ -87,8 +87,10 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
                     <a href="#" data-toggle="modal" data-target="#modalConrado">
                         <div class="member">
-
-                            <img src="img/conrado.jpeg" class="img-fluid" alt="">
+                            <div class="h-100 palestrante-conrado">
+                                <img src="img/conrado.jpeg" class="img-fluid" alt="">
+                            </div>
+                            <!--                            img-thumbnail-->
 
                             <div class="member-info">
                                 <div class="member-info-content">
@@ -99,10 +101,10 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp bg-danger" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a href="#" data-toggle="modal" data-target="#modalFrancisco">
                         <div class="member">
-                            <div class="h-100 bg-danger">
+                            <div class="h-100 palestrante-francisco">
                                 <img src="img/francisco.jpeg" class="img-fluid" alt="">
                             </div>
                             <div class="member-info">
@@ -119,7 +121,9 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <a href="#" data-toggle="modal" data-target="#modalJose">
                         <div class="member">
-                            <img src="img/jose.jpeg" class="img-fluid" alt="">
+                            <div class="h-100 palestrante-jose">
+                                <img src="img/jose.jpeg" class="img-fluid" alt="">
+                            </div>
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Prof. José Celso da </br>Cunha</h4>
@@ -132,7 +136,9 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <a href="#" data-toggle="modal" data-target="#modalRomario">
                         <div class="member">
-                            <img src="img/romario.jpeg" class="img-fluid" alt="">
+                            <div class="h-100 palestrante-romario">
+                                <img src="img/romario.jpeg" class="img-fluid" alt="">
+                            </div>
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Eng. Romário de Souza Lima</h4>
@@ -177,7 +183,7 @@
 
             <div class="row feature-item mt-5 pt-5">
                 <div class="col-lg-4 wow fadeInUp order-1 order-lg-2">
-                    <img src="http://ecoviareciclagem.com.br/images/logo.png" class="img-fluid" alt="">
+                    <img src="img/ecovia_logo.png" class="img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-8 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">

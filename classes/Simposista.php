@@ -167,22 +167,32 @@ class Simposista
 
     public function lembrarSenha($email)
     {
-        //verificar se o email e senha estão cadastrado
+        //verificar se o email está cadastrado
         $query = "SELECT idSimposista FROM simposista WHERE email = :e";
-        $conexao = ConexaoUser::pegarConexao();
+        $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(":e", $email);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            # TODO criar uma nova senha de 6 digitos, atualizar no banco e enviar e-mail
-//            $dados = $stmt->fetch();
-//            $dados['email'];
 
-            return true;
+            $newPassword = Funcao::generatePassword(8);
+
+            $query = "UPDATE simposista SET senha = :senha WHERE idSimposista = :id";
+            $conexao = ConexaoUser::pegarConexao();
+            $stmt = $conexao->prepare($query);
+            $stmt->bindValue(':senha', sha1($newPassword));
+            $stmt->execute();
+            $dadosRetorno = [
+                'newPassword' => $newPassword,
+                'retorno' => true
+            ];
         } else {
-            return false;
+            $dadosRetorno = [
+                'retorno' => false
+            ];
         }
+        return $dadosRetorno;
     }
 
     public function getNome()
