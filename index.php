@@ -408,12 +408,11 @@
                             <i class="ion-ios-calendar-outline" style="color: #2282ff;"></i>
                         </div>
                         <h4 class="title"><a href="">1° Chamada</a></h4>
-                        <h6 class="description text-center">De 01/07 até 06/07/2019 </br> Inscrições abertas para
+                        <h6 class="description text-center">De 03/07 até 08/07/2019 </br> Inscrições abertas para
                             discentes a partir do <strong>6° período</strong> do curso.
                         </h6>
                         <div class="">
-                            <a href="cadastrar.php" class="btn btn-info">Cadastre-se</a>
-                            <a href="login.php" class="btn btn-success text-white">Inscreva-se</a>
+                            <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
                         </div>
                     </div>
                 </div>
@@ -422,12 +421,10 @@
                         <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-calendar-outline"
                                                                           style="color: #3fcdc7;"></i></div>
                         <h4 class="title"><a href="">2° Chamada</a></h4>
-                        <h6 class="description text-center">De 07/07 até 12/07/2019 </br> Inscrições abertas para
+                        <h6 class="description text-center">De 09/07 até 15/07/2019 </br> Inscrições abertas para
                             discentes dos <strong>demais períodos </strong> do curso.
                         </h6>
                         <div class="">
-                            <!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
-                            <!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
                         </div>
                     </div>
@@ -438,13 +435,11 @@
                         <div class="icon" style="background: #fff0da;"><i class="ion-ios-calendar-outline"
                                                                           style="color: #e98e06;"></i></div>
                         <h4 class="title"><a href="">3° Chamada</a></h4>
-                        <h6 class="description text-center">A partir de 13/07/2019 </br> Inscrições abertas apenas no
+                        <h6 class="description text-center">A partir de 16/07/2019 </br> Inscrições abertas apenas no
                             caso de <strong>vagas remanescentes</strong>.
                         </h6>
                         <div class="">
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
-                            <!--                            <a href="#services" class="btn btn-info">Cadastre-se</a>-->
-                            <!--                            <a href="#services" class="btn btn-success text-white">Inscreva-se</a>-->
                         </div>
                     </div>
                 </div>

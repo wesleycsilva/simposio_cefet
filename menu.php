@@ -19,7 +19,7 @@ Header
                 <li><a href="#pricing">Programação</a></li>
                 <li><a href="#services">Inscrições</a></li>
                 <li><a href="#footer">Contato</a></li>
-                <li><a href="login.php">Login</a></li>
+<!--                <li><a href="login.php">Login</a></li>-->
             </ul>
         </nav><!-- .main-nav -->
 
