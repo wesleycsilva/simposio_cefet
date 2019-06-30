@@ -302,10 +302,7 @@
                         <div class="card-block">
                             <h4 class="card-title">Visita ao Lar São Vicente de Paula - Varginha/MG</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Horário: 17:30 às 18:30 horas</li>
-                                <!--                                <li class="list-group-item">Inventore quisquam et</li>-->
-                                <!--                                <li class="list-group-item">Et perspiciatis suscipit</li>-->
-                                <!--                                <li class="list-group-item">24/7 Support System</li>-->
+                                <li class="list-group-item">Horário: a definir</li>
                             </ul>
                             <a href="http://www.larsaovicentevga.org.br/instituicao/" class="btn" target="_blank">Visite
                                 o site</a>

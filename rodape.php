@@ -36,27 +36,27 @@
                         <h4>ENVIE-NOS UMA MENSAGEM</h4>
                         <p>Em caso de alguma dúvida, entre em contato com a coordenação do Simpósio através do
                             formulário abaixo.</p>
-                        <form action="" method="post" role="form" class="contactForm">
+                        <form action="login_post.php?action=contato" method="post" role="form" class="contactForm">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome"
-                                       data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                                <input type="text" name="nomeContato" class="form-control" id="nomeContato" placeholder="Seu Nome"
+                                       data-rule="minlen:10" data-msg="Por favor, insira pelo menos 10 caracteres"/>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
+                                <input type="email" class="form-control" name="emailContato" id="emailContato"
                                        placeholder="Seu Email" data-rule="email"
-                                       data-msg="Please enter a valid email"/>
+                                       data-msg="Por favpr, insira um e-mail válido"/>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                       placeholder="Assunto" data-rule="minlen:4"
-                                       data-msg="Please enter at least 8 chars of subject"/>
+                                <input type="text" class="form-control" name="assunto" id="assunto"
+                                       placeholder="Assunto" data-rule="minlen:6"
+                                       data-msg="Por favor, insira pelo menos 6 caracteres"/>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                          data-msg="Please write something for us" placeholder="Mensagem"></textarea>
+                                <textarea class="form-control" name="mensagem" id="mensagem" rows="5" data-rule="required"
+                                          data-msg="Por favor, escreva algo para nós" placeholder="Mensagem"></textarea>
                                 <div class="validation"></div>
                             </div>
 

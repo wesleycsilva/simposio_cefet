@@ -117,31 +117,39 @@ function enviarEmail()
 
 function enviarEmailContato()
 {
+//    var_dump('Fazer função de enviar email contato');exit;
     $mail = new PHPMailer(true);
 
     try {
         //Server settings
         $mail->SMTPDebug = 2;                                       // Enable verbose debug output
         $mail->isSMTP();                                            // Set mailer to use SMTP
-        $mail->Host       = 'smtp1.example.com;smtp2.example.com';  // Specify main and backup SMTP servers
+//        $mail->Host       = 'smtp1.example.com;smtp2.example.com';  // Specify main and backup SMTP servers
+        $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'user@example.com';                     // SMTP username
-        $mail->Password   = 'secret';                               // SMTP password
+        $mail->Username   = 'simposioengenhariacivil@gmail.com';                     // SMTP username
+        $mail->Password   = 'wm&716&#';                               // SMTP password
         $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
         $mail->Port       = 587;                                    // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('from@example.com', 'Mailer');
-        $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
-        $mail->addAddress('ellen@example.com');               // Name is optional
-        $mail->addReplyTo('info@example.com', 'Information');
-        $mail->addCC('cc@example.com');
-        $mail->addBCC('bcc@example.com');
+        $mail->setFrom('wesleycsilva@yahoo.com.br', 'Simposio 2019');
+        $mail->addAddress('wesleycsilva@yahoo.com.br', 'Wesley Seminovos');     // Add a recipient
+//        $mail->addAddress('ellen@example.com');               // Name is optional
+//        $mail->addReplyTo('info@example.com', 'Information');
+        $mail->addCC('maggeisiellly@yahoo.com.br');
+//        $mail->addBCC('bcc@example.com');
+        $html = 'E-mail formul&aacute;rio de contato do <b>Simp&oacute;sio!</b><br><br>
+                 <b>Nome:</b> ' . $_POST['emailContato'] . '<br>
+                 <b>E-mail:</b> ' . $_POST['emailContato'] . '<br>
+                 <b>Assunto:</b> ' . utf8_decode($_POST['assunto']) . '<br>
+                 <b>Mensagem:</b> ' . utf8_decode($_POST['mensagem']) . '<br>
+                 <b>Data:</b> ' . date('d/m/Y H:i:s') . '<br>';
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+        $mail->Subject = 'Simposio 2019 - CefetMG';
+        $mail->Body    = $html;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
         $mail->send();
