@@ -95,7 +95,7 @@ class Simposista
         $query = "INSERT INTO simposista (nome, matricula, email, dataNascimento, cpf, rg, telefone, senha)
                 VALUES (:nome, :matricula, :email, :dataNascimento, :cpf, :rg, :telefone, :senha )";
         try {
-            $conexao = ConexaoUser::pegarConexao();
+            $conexao = Conexao::pegarConexao();
             $stmt = $conexao->prepare($query);
             $stmt->bindValue(':nome', $this->nome);
             $stmt->bindValue(':matricula', $this->matricula);
@@ -107,9 +107,9 @@ class Simposista
             $stmt->bindValue(':senha', sha1($this->senha));
             $stmt->execute();
 
-            return ['status' => '200', 'mensagem' => 'Sucesso'];
+            return ['status' => '200'];
         } catch (Exception $e) {
-            return ['status' => '400', 'mensagem' => 'Exceção capturada: ' . $e->getMessage()];
+            return ['status' => '400'];
         }
     }
 

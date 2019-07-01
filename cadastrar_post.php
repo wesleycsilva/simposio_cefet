@@ -12,7 +12,7 @@ try {
     $senha = $_POST['password'];
 
     $simposista = new Simposista();
-    $funcao = new FuncaoUser();
+    $funcao = new Funcao();
 
     $simposista->nome = $nome;
     $simposista->matricula = $matricula;
@@ -28,8 +28,14 @@ try {
 //    var_dump($retorno);exit;
 //    array(2) { ["status"]=> string(3) "200" ["mensagem"]=> string(7) "Sucesso" }
 
+    if ($retorno['status'] == 200) {
+        echo 'OK';
+    } else {
+        echo 'Erro';
+    }
     # TODO criar um mensagem com usuário cadastrado com sucesso (modal) e redirecionr para a tela de login
-    header('Location: index.php');
+
+//    header('Location: index.php');
 
 
 } catch (Exception $e) {
