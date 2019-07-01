@@ -1,9 +1,7 @@
 <?php require_once 'global_user.php' ?>
 <?php
 try {
-//    session_start();
-//    $idSimposista = $_SESSION['idSimposista'];
-    $idSimposista = 5;
+    $idSimposista = $_SESSION['idSimposista'];
     $simposista = new SimposistaUser($idSimposista);
     $mask = new FuncaoUser();
 

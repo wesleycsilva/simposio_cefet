@@ -1,11 +1,13 @@
 <?php include "menu_user.php" ?>
 <?php require_once 'global_user.php' ?>
+<?php require_once 'valida_login.php' ?>
 <?php
 try {
     $lista = Evento::listar();
     $format = new FuncaoUser();
     session_start();
-    $_SESSION['idSimposista'] = 5;
+    validaLogin();
+
 } catch (Exception $e) {
     Erro::trataErro($e);
 }

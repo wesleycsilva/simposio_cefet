@@ -1,9 +1,11 @@
 <?php require_once 'global_user.php' ?>
+<?php require_once 'valida_login.php' ?>
 <?php
 session_start();
+validaLogin();
+
 try {
-//    $idSimposista = $_SESSION['idSimposista'];
-    $idSimposista = 5;
+    $idSimposista = $_SESSION['idSimposista'];
     $simposista = new SimposistaUser($idSimposista);
     $mask = new FuncaoUser();
 
@@ -11,7 +13,7 @@ try {
     Erro::trataErro($e);
 }
 ?>
-
+tt
 <?php include "menu_user.php" ?>
 <!-- PAGE CONTAINER-->
 <div class="page-container">

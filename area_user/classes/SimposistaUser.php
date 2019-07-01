@@ -185,6 +185,23 @@ class SimposistaUser
         }
     }
 
+    public function consultaLoginUsuario($email, $senha)
+    {
+        //verificar se o email e senha estão cadastrado
+        $query = "SELECT * FROM simposista WHERE email = :e AND senha = :s";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":e", $email);
+        $stmt->bindValue(":s", $senha);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getNome()
     {
         return $this->nome;
