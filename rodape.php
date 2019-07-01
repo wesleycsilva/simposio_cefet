@@ -25,50 +25,13 @@
                                     <li><a href="#pricing">Programação</a></li>
                                     <li><a href="#services">Inscrições</a></li>
                                     <li><a href="#footer">Contato</a></li>
-<!--                                    <li><a href="login.php">Login</a></li>-->
+                                    <li><a href="login.php">Login</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="form">
-                        <h4>ENVIE-NOS UMA MENSAGEM</h4>
-                        <p>Em caso de alguma dúvida, entre em contato com a coordenação do Simpósio através do
-                            formulário abaixo.</p>
-                        <form action="login_post.php?action=contato" method="post" role="form" class="contactForm">
-                            <div class="form-group">
-                                <input type="text" name="nomeContato" class="form-control" id="nomeContato" placeholder="Seu Nome"
-                                       data-rule="minlen:10" data-msg="Por favor, insira pelo menos 10 caracteres"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="emailContato" id="emailContato"
-                                       placeholder="Seu Email" data-rule="email"
-                                       data-msg="Por favpr, insira um e-mail válido"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="assunto" id="assunto"
-                                       placeholder="Assunto" data-rule="minlen:6"
-                                       data-msg="Por favor, insira pelo menos 6 caracteres"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="mensagem" id="mensagem" rows="5" data-rule="required"
-                                          data-msg="Por favor, escreva algo para nós" placeholder="Mensagem"></textarea>
-                                <div class="validation"></div>
-                            </div>
-
-                            <div id="sendmessage">Sua mensagem foi enviada com sucesso. Obrigado!</div>
-                            <div id="errormessage"></div>
-
-                            <div class="text-center">
-                                <button type="submit" title="Send Message">Enviar Mensagem</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <?php include "contato.php"; ?>
             </div>
         </div>
     </div>
@@ -90,6 +53,9 @@
 <!-- JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
 <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/mobile-nav/mobile-nav.js"></script>

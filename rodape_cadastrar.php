@@ -6,66 +6,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="footer-info">
-                                <h5>I° Simpósio de Engenharia Civil</br> Materiais, Sustentabilidade e Inovações
-                                    Tecnológicas </h5>
-                                <p>O Simpósio será realizado nos dias <strong>08 e 09 de agosto de 2019</strong> no Centro Federal de
-                                    Educação Tecnológica de Minas Gerais, Campus Varginha.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="footer-links">
-                                <h4>Links</h4>
-                                <ul>
-                                    <li><a href="index.php#about">Sobre</a></li>
-                                    <li><a href="index.php#team">Palestrantes</a></li>
-                                    <li><a href="index.php#features">Visitas Técnicas</a></li>
-                                    <li><a href="index.php#pricing">Programação</a></li>
-                                    <li><a href="index.php#services">Inscrições</a></li>
-                                    <li><a href="index.php#footer">Contato</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="footer-info">
+                        <h5>I° Simpósio de Engenharia Civil</br> Materiais, Sustentabilidade e Inovações
+                            Tecnológicas </h5>
+                        <p>O Simpósio será realizado nos dias <strong>08 e 09 de agosto de 2019</strong> no
+                            Centro Federal de
+                            Educação Tecnológica de Minas Gerais, Campus Varginha.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="form">
-                        <h4>ENVIE-NOS UMA MENSAGEM</h4>
-                        <p>Em caso de alguma dúvida, entre em contato com a coordenação do Simpósio através do
-                            formulário abaixo.</p>
-                        <form action="" method="post" role="form" class="contactForm">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome"
-                                       data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="Seu Email" data-rule="email"
-                                       data-msg="Please enter a valid email"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                       placeholder="Assunto" data-rule="minlen:4"
-                                       data-msg="Please enter at least 8 chars of subject"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                          data-msg="Please write something for us" placeholder="Mensagem"></textarea>
-                                <div class="validation"></div>
-                            </div>
-
-                            <div id="sendmessage">Sua mensagem foi enviada com sucesso. Obrigado!</div>
-                            <div id="errormessage"></div>
-
-                            <div class="text-center">
-                                <button type="submit" title="Send Message">Enviar Mensagem</button>
-                            </div>
-                        </form>
+                <div class="col-sm-6">
+                    <div class="footer-links">
+                        <h4>Links</h4>
+                        <ul>
+                            <li><a href="index.php#about">Sobre</a></li>
+                            <li><a href="index.php#team">Palestrantes</a></li>
+                            <li><a href="index.php#features">Visitas Técnicas</a></li>
+                            <li><a href="index.php#pricing">Programação</a></li>
+                            <li><a href="index.php#services">Inscrições</a></li>
+                            <li><a href="index.php#footer">Contato</a></li>
+                            <li><a href="login.php">Login</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

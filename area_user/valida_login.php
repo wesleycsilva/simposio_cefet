@@ -39,7 +39,7 @@ function validaLogin() {
             session_destroy();
 
             echo "<script>";
-            echo "alert('Sua sessao expirou. \\nFaca o Login novamente.');";
+            echo "alert('Sua sessao expirou. \\nFaça o Login novamente.');";
             echo "document.location.href = '../index.php'";
             echo "</script>";
             exit;

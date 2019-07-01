@@ -142,13 +142,13 @@ function enviarEmailContato()
         $mail->AltBody = 'Este é o corpo em texto sem formatação para clientes de email não HTML';
 
         if ($mail->send()) {
-            echo 'Sua mensagem foi enviada com sucesso. Obrigado!';
+            echo 'OK';
         } else {
-            echo 'A mensagem não pôde ser enviada. Por gentileza tente mais tarde!';
+            echo 'Erro';
         }
 
     } catch (Exception $e) {
-        echo "A mensagem não pôde ser enviada. Por gentileza tente mais tarde!";
+        echo "Erro";
     }
 }
 
