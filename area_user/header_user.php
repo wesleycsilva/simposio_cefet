@@ -1,8 +1,8 @@
 <?php require_once 'global_user.php' ?>
 <?php
 try {
-
-//    $idSimposista = $_GET['idSimposista'];
+//    session_start();
+//    $idSimposista = $_SESSION['idSimposista'];
     $idSimposista = 5;
     $simposista = new SimposistaUser($idSimposista);
     $mask = new FuncaoUser();
@@ -26,7 +26,7 @@ try {
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="../img/simposio_logo.png" alt="John Doe"/>
+                                            <img src="../img/simposio_logo.png" alt="Simposio"/>
                                         </a>
                                     </div>
                                     <div class="content">
@@ -43,7 +43,7 @@ try {
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a href="#">
+                                    <a href="sair.php">
                                         <i class="zmdi zmdi-power"></i>Sair</a>
                                 </div>
                             </div>

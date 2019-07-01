@@ -7,28 +7,29 @@
         <div class="container">
             <div class="section-header">
                 <h3>Login</h3>
-                <p>Preencha corretamente os campos abaixo e clique no botão entrar para acessar sua área e se inscrever nas atividades do Simpósio!</p>
+                <p>Preencha corretamente os campos abaixo e clique no botão entrar para acessar sua área e se inscrever
+                    nas atividades do Simpósio!</p>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h4 class="text-center">I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações Tecnológicas </h4>
+                    <h4 class="text-center">I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações
+                        Tecnológicas </h4>
                 </div>
             </div>
             <div class="form">
-                <form action="login_post.php?action=logar" method="post" role="form" class="contactForm">
+                <form action="" method="" id="formLogin" role="form" class="formLogin">
                     <br>
                     <div class="row">
                         <div class="col-lg-4 col-md-4"></div>
                         <div class="col-lg-4 col-md-4">
                             <div class="form-group">
-                                <input type="text" name="email" class="form-control" id="email" placeholder="Seu e-mail"
-                                       data-rule="email" data-msg="Por favor, digite um e-mail válido"/>
+                                <input type="text" name="email" class="form-control" id="email"
+                                       placeholder="Seu e-mail"/>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="senha" id="senha" required="required"
-                                       data-rule="required"
-                                       data-msg="Por favor, insira pelo menos 6 caracteres" placeholder="Sua Senha">
+                                <input type="password" class="form-control" name="password" id="password" required="required"
+                                       placeholder="Sua Senha">
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
@@ -36,12 +37,13 @@
                                 </button>
                             </div>
                             <div class="form-group text-right">
-<!--                                <a href="#" data-toggle="modal" data-target="#modalLembrarSenha" class="text-info small btn-esqueci-minha-senha">-->
-                                    <small class="semi-bold"> Clique aqui</small>
+                                <!--                                <a href="#" data-toggle="modal" data-target="#modalLembrarSenha" class="text-info small btn-esqueci-minha-senha">-->
+                                <small class="semi-bold"> Clique aqui</small>
                                 </a>
                                 <small class="small">
                                     Esqueceu sua senha?
-                                    <a href="#" data-toggle="modal" data-target="#modalLembrarSenha" class="text-info small"><strong>Clique aqui</strong></a>
+                                    <a href="#" data-toggle="modal" data-target="#modalLembrarSenha"
+                                       class="text-info small"><strong>Clique aqui</strong></a>
                                 </small>
                             </div>
 
@@ -84,7 +86,8 @@
                             <div class="form-group col-12">
                                 <div class="col-md-12 no-padding sm-p-l-10">
                                     <label class="control-label">Email</label>
-                                    <input type="text" class="form-control d-flex w-100" id="emailLembrarSenha" name="emailLembrarSenha">
+                                    <input type="text" class="form-control d-flex w-100" id="emailLembrarSenha"
+                                           name="emailLembrarSenha">
                                 </div>
                             </div>
                         </div>
@@ -106,4 +109,25 @@
     </form>
 </div>
 
+<div class="modal fade" id="modalLoginErro" tabindex="-1" role="dialog" aria-labelledby="modalLoginErroLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLoginErroLabel">Atenção</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Email e/ou Senha incorretos!. Por gentileza, tente novamente!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php require_once 'rodape_cadastrar.php' ?>
+
+<script src="contactform/loginform.js"></script>

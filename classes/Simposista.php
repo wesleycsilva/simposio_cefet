@@ -144,7 +144,7 @@ class Simposista
     {
         //verificar se o email e senha estão cadastrado
         $query = "SELECT * FROM simposista WHERE email = :e AND senha = :s";
-        $conexao = ConexaoUser::pegarConexao();
+        $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(":e", $email);
         $stmt->bindValue(":s", sha1($senha));
@@ -159,6 +159,7 @@ class Simposista
              $_SESSION['email'] = $dados['email'];
              $_SESSION['nome'] = $dados['nome'];
              $_SESSION['controle'] = $dados['senha'];
+
             return true;
         } else {
             return false;
