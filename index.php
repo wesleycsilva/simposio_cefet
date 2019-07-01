@@ -11,7 +11,7 @@
                 <h2>I° Simpósio de Engenharia Civil</br> Materiais, Sustentabilidade e Inovações Tecnológicas </br>
                     <span>CEFET-MG</span></h2>
                 <div>
-                    <a href="cadastrar.php" class="btn-get-started scrollto">Cadastre-se</a>
+                    <a href="#" class="btn-get-started scrollto">Cadastre-se</a>
                 </div>
             </div>
 
@@ -236,7 +236,7 @@
                                 </li>
                                 <li class="list-group-item">Jantar - Horário: 17:30 às 18:30 horas</li>
                                 <li class="list-group-item">Abertura do evento - Horário: 18:50 às 19:00 horas<br>
-                                    Prof. Conrado de Souza Rodrigues - Diretor de Pesquisa e Pós-Graduação do CEFETMG
+                                    Profas. Denise de Carvalho Urashima e Mag Geisielly Alves Guimarães - Curso de Engenharia Civil, CEFETMG - Campus Varginha
                                 </li>
                                 <li class="list-group-item">Palestra 1: Construções Pré-Colombianas das Américas -
                                     Horário: 19:00 às 20:10 horas<br>

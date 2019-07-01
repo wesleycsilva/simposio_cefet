@@ -57,8 +57,8 @@ validaLogin();
                                                 <a href="#">Abertura do evento</a>
                                             </h5>
                                             <span class="time">18:50 às 19:00 horas</span>
-                                            <p class="small">Prof. Conrado de Souza Rodrigues - Diretor de Pesquisa
-                                                e Pós-Graduação do CEFETMG</p>
+                                            <p class="small">Profas. Denise de Carvalho Urashima e Mag Geisielly Alves
+                                                Guimarães - Curso de Engenharia Civil, CEFETMG - Campus Varginha</p>
                                         </div>
                                     </div>
                                     <div class="au-task__item au-task__item--success">
