@@ -169,12 +169,12 @@
                 <div class="col-lg-8 wow fadeInUp pt-5 pt-lg-0">
                     <h4>Pedreira Santo Antônio</h4>
                     <p class="text-justify">A Pedreira Santo Antônio é uma empresa mineira que prima pela tradição,
-                        ética e responsabilidade socioambiental e que trabalha com base na qualidade para atender o Sul
-                        de Minas. Com foco em melhoria contínua, investe em novos equipamentos, pesquisa e
+                        ética e responsabilidade socioambiental e que trabalha com base na qualidade para atender ao Sul
+                        de Minas. Com foco em melhoria contínua, investe em novos equipamentos, pesquisa,
                         desenvolvimento e processos produtivos para oferecer soluções inovadoras à construção civil.
                     </p>
                     <p class="text-justify">Localizada na cidade de Varginha/MG, a empresa produz agregados em larga
-                        escala a partir da moagem de rochas gnaisse em distintas granulometrias (areias de brita,
+                        escala a partir da britagem de rochas gnaisse em distintas granulometrias (areias de brita,
                         britas, bica corrida e matacão) que podem ser utilizadas em diferentes aplicações na engenharia
                         civil, geotécnica e ambiental.
                     </p>
@@ -236,7 +236,8 @@
                                 </li>
                                 <li class="list-group-item">Jantar - Horário: 17:30 às 18:30 horas</li>
                                 <li class="list-group-item">Abertura do evento - Horário: 18:50 às 19:00 horas<br>
-                                    Profas. Denise de Carvalho Urashima e Mag Geisielly Alves Guimarães - Curso de Engenharia Civil, CEFETMG - Campus Varginha
+                                    Profas. Denise de Carvalho Urashima e Mag Geisielly Alves Guimarães - Curso de
+                                    Engenharia Civil, CEFETMG - Campus Varginha
                                 </li>
                                 <li class="list-group-item">Palestra 1: Construções Pré-Colombianas das Américas -
                                     Horário: 19:00 às 20:10 horas<br>

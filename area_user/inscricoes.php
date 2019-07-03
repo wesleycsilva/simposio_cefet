@@ -63,7 +63,8 @@ try {
                                                     onclick="inscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
                                                 <i class="fa fa-picture-o"></i>&nbsp; INSCREVER
                                             </button>
-                                            <button type="button" class="btn btn-outline-success">
+                                            <button type="button" class="btn btn-outline-success"
+                                                    onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
                                                 <i class="fa fa-qrcode"></i>&nbsp; GERAR QRCODE
                                             </button>
                                             <button type="button" class="btn btn-outline-danger"
@@ -88,52 +89,77 @@ try {
             </div>
         </div>
     </div>
+
+    <script src="vendor/sweetalert/sweetalert.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" rel="stylesheet">
     <!-- END PAGE CONTAINER-->
     <script>
         function inscricao(idEvento, idSimposista) {
-            $.ajax({
-                url: "inscricao_post.php",
-                type: 'post',
-                data: {
-                    idEvento: idEvento,
-                    idSimposista: idSimposista,
-                    controle: "inscrever"
+            swal({
+                    title: "Atenção",
+                    text: "Deseja se inscrever neste evento?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-success",
+                    confirmButtonText: "Sim, me inscrever!",
+                    cancelButtonText: "Não, cancelar!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
                 },
-                beforeSend: function () {
-                    // $("#resultado").html("ENVIANDO...");
-                    alert('load');
-                }
-            })
-                .done(function (msg) {
-                    // $("#resultado").html(msg);
-                    alert('resposta');
-                })
-                .fail(function (jqXHR, textStatus, msg) {
-                    alert(msg);
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            url: "inscricao_post.php",
+                            type: 'post',
+                            data: {
+                                idEvento: idEvento,
+                                idSimposista: idSimposista,
+                                controle: "inscrever"
+                            }
+                        }).done(function (msg) {
+                            swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
+                        })
+
+                    } else {
+                        swal("Cancelar", "Sua inscrição não foi processada!", "error");
+                    }
                 });
         }
 
         function cancelarInscricao(idEvento, idSimposista) {
-            $.ajax({
-                url: "inscricao_post.php",
-                type: 'post',
-                data: {
-                    idEvento: idEvento,
-                    idSimposista: idSimposista,
-                    controle: "cancelar"
+
+            swal({
+                    title: "Atenção",
+                    text: "Deseja realmente excluir sua inscrição?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Sim, desejo!",
+                    cancelButtonText: "Não, cancelar!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
                 },
-                beforeSend: function () {
-                    // $("#resultado").html("ENVIANDO...");
-                    alert('load');
-                }
-            })
-                .done(function (msg) {
-                    // $("#resultado").html(msg);
-                    alert('resposta');
-                })
-                .fail(function (jqXHR, textStatus, msg) {
-                    alert(msg);
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            url: "inscricao_post.php",
+                            type: 'post',
+                            data: {
+                                idEvento: idEvento,
+                                idSimposista: idSimposista,
+                                controle: "cancelar"
+                            },
+                        }).done(function (msg) {
+                            swal("Deletado!", "Insrição excluida com sucesso!", "success");
+                        })
+                    } else {
+                        swal("Cancelado", "Sua inscrição continua ativa!", "error");
+                    }
                 });
         }
+        function gerarQrCode(idEvento, idSimposista) {
+            swal("QrCode", "Disponível a partir do dia 01/08/2019!", "info")
+        }
+
     </script>
 <?php include "footer_user.php" ?>

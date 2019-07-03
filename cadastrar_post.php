@@ -14,6 +14,19 @@ try {
     $simposista = new Simposista();
     $funcao = new Funcao();
 
+    $retornoMatricula = validaMatricula($matricula);
+    if ($retornoMatricula['status'] == 200) {
+        echo $retornoMatricula['mensagem'];
+        exit;
+    }
+
+    $funcao = new Funcao();
+
+    if (!$funcao->validarCPF($cpf)) {
+        echo 'CPF inválido. Por gentileza verifique os dados!';
+        exit;
+    }
+
     $simposista->nome = $nome;
     $simposista->matricula = $matricula;
     $simposista->email = $email;
@@ -25,19 +38,11 @@ try {
 
     $retorno = $simposista->inserir();
 
-//    var_dump($retorno);exit;
-//    array(2) { ["status"]=> string(3) "200" ["mensagem"]=> string(7) "Sucesso" }
-
     if ($retorno['status'] == 200) {
         echo 'OK';
     } else {
         echo 'Erro';
     }
-    # TODO criar um mensagem com usuário cadastrado com sucesso (modal) e redirecionr para a tela de login
-
-//    header('Location: index.php');
-
-
 } catch (Exception $e) {
     Erro::trataErro($e);
 }
@@ -45,11 +50,11 @@ try {
 function validaMatricula($matricula)
 {
     $dataInicioPrimeiraChamada = strtotime('2019-07-03');
-    $dataFinalPrimeiraChamada 	= strtotime('2019-07-08');
-    $dataInicioSegundaChamada 	= strtotime('2019-07-09');
-    $dataFinalSegundaChamada 	= strtotime('2019-07-15');
-    $dataInicioTerceiraChamada 	= strtotime('2019-07-16');
-    $dataFinalTerceiraChamada 	= strtotime('2019-07-30');
+    $dataFinalPrimeiraChamada = strtotime('2019-07-08');
+    $dataInicioSegundaChamada = strtotime('2019-07-09');
+    $dataFinalSegundaChamada = strtotime('2019-07-15');
+    $dataInicioTerceiraChamada = strtotime('2019-07-16');
+    $dataFinalTerceiraChamada = strtotime('2019-07-30');
 
     $arrayMatriculaPrimeiraChamada = [
         '20151', '20152', '20161', '20162', '20171'
@@ -67,29 +72,29 @@ function validaMatricula($matricula)
     #20151XXXXXXX - 5° = semestre letivo (1 ou 2)
 
     if (strlen($matricula) != 12) {
-        return 'Quantidade de caracteres da matricula errado';
+        return ['status' => 400, 'mensagem' => 'Quantidade de caracteres da matricula errado'];
     }
 
-    $anoMatricula = (string) substr($matricula, 0, 5);
+    $anoMatricula = (string)substr($matricula, 0, 5);
 
     if ($data >= $dataInicioPrimeiraChamada && $data <= $dataFinalPrimeiraChamada) {
         if (!in_array($anoMatricula, $arrayMatriculaPrimeiraChamada)) {
-            return 'Número de matricula inválido para essa etapa';
+            return ['status' => 400, 'mensagem' => 'Quantidade de caracteres da matricula errado'];
         }
     } elseif ($data >= $dataInicioSegundaChamada && $data <= $dataFinalSegundaChamada) {
         if (!in_array($anoMatricula, $arrayMatriculaSegundaChamada)) {
-            return 'Número de matricula inválido para essa etapa';
+            return ['status' => 400, 'mensagem' => 'Número de matricula inválido para essa etapa'];
         }
     } elseif ($data >= $dataInicioTerceiraChamada && $data <= $dataFinalTerceiraChamada) {
         if (in_array($anoMatricula, $arrayMatriculaPrimeiraChamada)) {
-            return 'OK';
-        } else if(in_array($anoMatricula, $arrayMatriculaSegundaChamada)) {
-            return 'OK';
+            return ['status' => 200, 'mensagem' => 'OK'];
+        } else if (in_array($anoMatricula, $arrayMatriculaSegundaChamada)) {
+            return ['status' => 200, 'mensagem' => 'OK'];
         } else {
-            return 'Número de matricula inválido para essa etapa';
+            return ['status' => 400, 'mensagem' => 'Número de matricula inválido para essa etapa'];
         }
     } else {
-        return 'Fora do prazo para cadastro';
+        return ['status' => 400, 'mensagem' => 'Fora do prazo para inscrição'];
     }
     return 'OK';
 

@@ -1,6 +1,7 @@
 <?php include "menu_user.php" ?>
 <?php require_once 'valida_login.php' ?>
 <?php
+
 session_start();
 validaLogin();
 
