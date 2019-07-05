@@ -414,7 +414,8 @@
                             discentes a partir do <strong>6° período</strong> do curso. E público externo (vagas limitadas).
                         </h6>
                         <div class="">
-                            <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
+                            <a href="cadastrar.php" class="btn btn-info">Cadastre-se</a>
+                            <a href="login.php" class="btn btn-success text-white">Inscreva-se</a>
                         </div>
                     </div>
                 </div>
