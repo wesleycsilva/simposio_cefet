@@ -2,6 +2,7 @@
 require_once 'global.php';
 
 try {
+
     $nome = $_POST['nome'];
     $matricula = $_POST['matricula'];
     $email = $_POST['email'];
@@ -10,21 +11,31 @@ try {
     $rg = $_POST['rg'];
     $telefone = $_POST['telefone'];
     $senha = $_POST['password'];
+    $instituicao = $_POST['instituicao'];
+    $cidade = $_POST['cidade'];
+    $checkbox = $_POST['checkbox'];
 
     $simposista = new Simposista();
     $funcao = new Funcao();
 
     $retornoMatricula = validaMatricula($matricula);
-    if ($retornoMatricula['status'] == 200) {
+
+    if ($retornoMatricula['status'] != 200) {
         echo $retornoMatricula['mensagem'];
         exit;
     }
 
+
     $funcao = new Funcao();
 
     if (!$funcao->validarCPF($cpf)) {
-        echo 'CPF inválido. Por gentileza verifique os dados!';
+        echo 'Erro! CPF inválido. Por gentileza verifique os dados!';
         exit;
+    }
+
+    $tipoSimposista = 1;
+    if ($checkbox == 2) {
+        $tipoSimposista = 2;
     }
 
     $simposista->nome = $nome;
@@ -35,6 +46,9 @@ try {
     $simposista->rg = $funcao->retirarCaracterRg($rg);
     $simposista->telefone = $funcao->retirarCaracterTelefone($telefone);
     $simposista->senha = $senha;
+    $simposista->instituicao = $instituicao;
+    $simposista->cidade = $cidade;
+    $simposista->tipoSimposista = $tipoSimposista;
 
     $retorno = $simposista->inserir();
 
@@ -49,11 +63,11 @@ try {
 
 function validaMatricula($matricula)
 {
-    $dataInicioPrimeiraChamada = strtotime('2019-07-03');
-    $dataFinalPrimeiraChamada = strtotime('2019-07-08');
-    $dataInicioSegundaChamada = strtotime('2019-07-09');
-    $dataFinalSegundaChamada = strtotime('2019-07-15');
-    $dataInicioTerceiraChamada = strtotime('2019-07-16');
+    $dataInicioPrimeiraChamada = strtotime('2019-07-05');
+    $dataFinalPrimeiraChamada = strtotime('2019-07-10');
+    $dataInicioSegundaChamada = strtotime('2019-07-11');
+    $dataFinalSegundaChamada = strtotime('2019-07-17');
+    $dataInicioTerceiraChamada = strtotime('2019-07-18');
     $dataFinalTerceiraChamada = strtotime('2019-07-30');
 
     $arrayMatriculaPrimeiraChamada = [
@@ -64,26 +78,27 @@ function validaMatricula($matricula)
         '20172', '20181', '20182', '20191', '20192'
     ];
 
-    #$data = strtotime(date("Y-m-d"));
-    $data = strtotime("2019-07-18");
+    $data = strtotime(date("Y-m-d"));
+//    $data = strtotime("2019-07-10");
 
     #count matriculoa = 12
     #20151XXXXXXX - 4 primeiros dígitos = ano da matrícula
     #20151XXXXXXX - 5° = semestre letivo (1 ou 2)
 
+
     if (strlen($matricula) != 12) {
-        return ['status' => 400, 'mensagem' => 'Quantidade de caracteres da matricula errado'];
+        return ['status' => 400, 'mensagem' => 'Erro! Quantidade de caracteres da matricula errado'];
     }
 
     $anoMatricula = (string)substr($matricula, 0, 5);
 
     if ($data >= $dataInicioPrimeiraChamada && $data <= $dataFinalPrimeiraChamada) {
         if (!in_array($anoMatricula, $arrayMatriculaPrimeiraChamada)) {
-            return ['status' => 400, 'mensagem' => 'Quantidade de caracteres da matricula errado'];
+            return ['status' => 400, 'mensagem' => 'Erro! Fora do período de inscrição para sua matrícula. Aguarde a data correta!'];
         }
     } elseif ($data >= $dataInicioSegundaChamada && $data <= $dataFinalSegundaChamada) {
         if (!in_array($anoMatricula, $arrayMatriculaSegundaChamada)) {
-            return ['status' => 400, 'mensagem' => 'Número de matricula inválido para essa etapa'];
+            return ['status' => 400, 'mensagem' => 'Erro! Número de matricula inválido para essa etapa'];
         }
     } elseif ($data >= $dataInicioTerceiraChamada && $data <= $dataFinalTerceiraChamada) {
         if (in_array($anoMatricula, $arrayMatriculaPrimeiraChamada)) {
@@ -91,11 +106,11 @@ function validaMatricula($matricula)
         } else if (in_array($anoMatricula, $arrayMatriculaSegundaChamada)) {
             return ['status' => 200, 'mensagem' => 'OK'];
         } else {
-            return ['status' => 400, 'mensagem' => 'Número de matricula inválido para essa etapa'];
+            return ['status' => 400, 'mensagem' => 'Erro! Número de matricula inválido para essa etapa'];
         }
     } else {
-        return ['status' => 400, 'mensagem' => 'Fora do prazo para inscrição'];
+        return ['status' => 400, 'mensagem' => 'Erro! Fora do prazo para inscrição'];
     }
-    return 'OK';
+    return ['status' => 200, 'mensagem' => 'OK'];
 
 }

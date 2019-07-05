@@ -25,7 +25,18 @@ class Evento
 
     public static function listar()
     {
-        $query = "SELECT * FROM evento ORDER BY idEvento ASC";
+        $query = "SELECT ev.idEvento AS idEvento, ev.idSimposio AS idSimposio, ev.titulo AS titulo,
+                    ev.descricao AS descricao, ev.data AS data, ev.informacoes AS informacoes, ev.local AS local,
+                    ev.qtdInscritos AS qtdInscritos, ev.qdtTotal AS qdtTotal, ev.dataHoraInicio AS dataHoraInicio,
+                    ev.dataHoraFinal AS dataHoraFinal, ins.idInscricao AS idInscricao, ins.situacao AS situacao
+                FROM
+                    simposio.evento ev
+                        LEFT JOIN
+                    simposio.inscricao ins ON (ev.idEvento = ins.idEvento
+                        AND ins.idSimposista = 1)
+                ORDER BY ev.idEvento ASC";
+
+//        $query = "SELECT * FROM evento ORDER BY idEvento ASC";
         $conexao = ConexaoUser::pegarConexao();
         $resultado = $conexao->query($query);
         $lista = $resultado->fetchAll();

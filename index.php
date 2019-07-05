@@ -11,7 +11,7 @@
                 <h2>I° Simpósio de Engenharia Civil</br> Materiais, Sustentabilidade e Inovações Tecnológicas </br>
                     <span>CEFET-MG</span></h2>
                 <div>
-                    <a href="#" class="btn-get-started scrollto">Cadastre-se</a>
+                    <a href="cadastrar.php" class="btn-get-started scrollto">Cadastre-se</a>
                 </div>
             </div>
 
@@ -409,8 +409,8 @@
                             <i class="ion-ios-calendar-outline" style="color: #2282ff;"></i>
                         </div>
                         <h4 class="title"><a href="">1° Chamada</a></h4>
-                        <h6 class="description text-center">De 03/07 até 08/07/2019 </br> Inscrições abertas para
-                            discentes a partir do <strong>6° período</strong> do curso.
+                        <h6 class="description text-center">De 05/07 até 10/07/2019 </br> Inscrições abertas para
+                            discentes a partir do <strong>6° período</strong> do curso. E público externo (vagas limitadas).
                         </h6>
                         <div class="">
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
@@ -422,8 +422,8 @@
                         <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-calendar-outline"
                                                                           style="color: #3fcdc7;"></i></div>
                         <h4 class="title"><a href="">2° Chamada</a></h4>
-                        <h6 class="description text-center">De 09/07 até 15/07/2019 </br> Inscrições abertas para
-                            discentes dos <strong>demais períodos </strong> do curso.
+                        <h6 class="description text-center">De 11/07 até 17/07/2019 </br> Inscrições abertas para
+                            discentes dos <strong>demais períodos </strong> do curso. E público externo (vagas limitadas).
                         </h6>
                         <div class="">
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
@@ -436,8 +436,8 @@
                         <div class="icon" style="background: #fff0da;"><i class="ion-ios-calendar-outline"
                                                                           style="color: #e98e06;"></i></div>
                         <h4 class="title"><a href="">3° Chamada</a></h4>
-                        <h6 class="description text-center">A partir de 16/07/2019 </br> Inscrições abertas apenas no
-                            caso de <strong>vagas remanescentes</strong>.
+                        <h6 class="description text-center">A partir de 18/07/2019 </br> Inscrições abertas apenas no
+                            caso de <strong>vagas remanescentes</strong>. E público externo (vagas limitadas).
                         </h6>
                         <div class="">
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>

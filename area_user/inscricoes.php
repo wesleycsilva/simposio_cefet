@@ -59,7 +59,20 @@ try {
                                             </p>
                                         <?php endif; ?>
                                         <div class="card-body align-items-center">
-                                            <button type="button" class="btn btn-outline-primary"
+                                            <?php
+                                            $controleInscricao = '';
+                                            $controleCancelar = 'disabled';
+                                            if ($linha['idInscricao'] != null) :
+                                                if ($linha['situacao'] == 1) : //inscricao ativa
+                                                    $controleInscricao = 'disabled';
+                                                    $controleCancelar = '';
+                                                elseif ($linha['situacao'] == 2) : //inscricao cancelada
+                                                    $controleInscricao = '';
+                                                    $controleCancelar = 'disabled';
+                                                endif;
+                                            endif; ?>
+                                            <button type="button"
+                                                    class="btn btn-outline-primary" <?= $controleInscricao ?>
                                                     onclick="inscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
                                                 <i class="fa fa-picture-o"></i>&nbsp; INSCREVER
                                             </button>
@@ -67,7 +80,8 @@ try {
                                                     onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
                                                 <i class="fa fa-qrcode"></i>&nbsp; GERAR QRCODE
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger"
+                                            <button type="button"
+                                                    class="btn btn-outline-danger" <?= $controleCancelar ?>
                                                     onclick="cancelarInscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
                                                 <i class="fa fa-times-circle-o"></i>&nbsp; CANCELAR INSCRIÇÃO
                                             </button>
@@ -118,6 +132,9 @@ try {
                             }
                         }).done(function (msg) {
                             swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
+                            setInterval(function(){
+                                window.location.reload(); // this will run after every 5 seconds
+                            }, 3000);
                         })
 
                     } else {
@@ -151,12 +168,16 @@ try {
                             },
                         }).done(function (msg) {
                             swal("Deletado!", "Insrição excluida com sucesso!", "success");
+                            setInterval(function(){
+                                window.location.reload(); // this will run after every 5 seconds
+                            }, 3000);
                         })
                     } else {
                         swal("Cancelado", "Sua inscrição continua ativa!", "error");
                     }
                 });
         }
+
         function gerarQrCode(idEvento, idSimposista) {
             swal("QrCode", "Disponível a partir do dia 01/08/2019!", "info")
         }

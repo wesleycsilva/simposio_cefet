@@ -13,6 +13,9 @@ class Simposista
     public $rg;
     public $telefone;
     public $senha;
+    public $instituicao;
+    public $cidade;
+    public $tipoSimposista;
 
     public function __construct($id = false)
     {
@@ -25,7 +28,7 @@ class Simposista
 
     public function carregar()
     {
-        $query = "SELECT nome, matricula, email, dataNascimento, cpf, rg, telefone, senha FROM simposista WHERE id = :id";
+        $query = "SELECT nome, matricula, email, dataNascimento, cpf, rg, telefone, senha, instituicao, cidade, tipoSimposista FROM simposista WHERE id = :id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id', $this->id);
@@ -39,6 +42,9 @@ class Simposista
         $this->rg = $linha['rg'];
         $this->telefone = $linha['telefone'];
         $this->senha = $linha['senha'];
+        $this->instituicao = $linha['instituicao'];
+        $this->cidade = $linha['cidade'];
+        $this->tipoSimposista = $linha['tipoSimposista'];
     }
 
     public static function listar()
@@ -52,7 +58,7 @@ class Simposista
 
     public static function listarPorSimposista($simposista_id)
     {
-        $query = "SELECT id, nome, matricula, email, dataNascimento, cpf, rg, telefone, senha FROM simposista WHERE simposista_id = :simposista_id";
+        $query = "SELECT id, nome, matricula, email, dataNascimento, cpf, rg, telefone, senha, instituicao, cidade, tipoSimposista FROM simposista WHERE simposista_id = :simposista_id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':simposista_id', $simposista_id);
@@ -92,8 +98,8 @@ class Simposista
 
     public function inserir()
     {
-        $query = "INSERT INTO simposista (nome, matricula, email, dataNascimento, cpf, rg, telefone, senha)
-                VALUES (:nome, :matricula, :email, :dataNascimento, :cpf, :rg, :telefone, :senha )";
+        $query = "INSERT INTO simposista (nome, matricula, email, dataNascimento, cpf, rg, telefone, senha, instituicao, cidade, tipoSimposista)
+                VALUES (:nome, :matricula, :email, :dataNascimento, :cpf, :rg, :telefone, :senha, :instituicao, :cidade, :tipoSimposista)";
         try {
             $conexao = Conexao::pegarConexao();
             $stmt = $conexao->prepare($query);
@@ -105,6 +111,9 @@ class Simposista
             $stmt->bindValue(':rg', $this->rg);
             $stmt->bindValue(':telefone', $this->telefone);
             $stmt->bindValue(':senha', sha1($this->senha));
+            $stmt->bindValue(':instituicao', $this->instituicao);
+            $stmt->bindValue(':cidade', $this->cidade);
+            $stmt->bindValue(':tipoSimposista', $this->tipoSimposista);
             $stmt->execute();
 
             return ['status' => '200'];
@@ -115,7 +124,7 @@ class Simposista
 
     public function atualizar($id)
     {
-        $query = "UPDATE simposista SET nome = :nome, matricula = :matricula, email = :email, dataNascimento = :dataNascimento, cpf = :cpf, rg = :rg, telefone = :telefone, senha = :senha WHERE id = :id";
+        $query = "UPDATE simposista SET nome = :nome, matricula = :matricula, email = :email, dataNascimento = :dataNascimento, cpf = :cpf, rg = :rg, telefone = :telefone, senha = :senha, instituicao = :instituicao, cidade = :cidade, tipoSimposista = :tipoSimposista WHERE idSimposista = :id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':nome', $this->nome);
@@ -126,13 +135,16 @@ class Simposista
         $stmt->bindValue(':rg', $this->rg);
         $stmt->bindValue(':telefone', $this->telefone);
         $stmt->bindValue(':senha', sha1($this->senha));
+        $stmt->bindValue(':instituicao', $this->instituicao);
+        $stmt->bindValue(':cidade', $this->cidade);
+        $stmt->bindValue(':tipoSimposista', $this->tipoSimposista);
         $stmt->execute();
         return $stmt;
     }
 
     public function excluir()
     {
-        $query = "DELETE FROM simposista WHERE id = :id";
+        $query = "DELETE FROM simposista WHERE idSimposista = :id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue('id', $this->id);
@@ -154,11 +166,11 @@ class Simposista
             //entrar no sistema(sessão)
             $dados = $stmt->fetch();
 
-             session_start();
-             $_SESSION['idSimposista'] = $dados['idSimposista'];
-             $_SESSION['email'] = $dados['email'];
-             $_SESSION['nome'] = $dados['nome'];
-             $_SESSION['controle'] = $dados['senha'];
+            session_start();
+            $_SESSION['idSimposista'] = $dados['idSimposista'];
+            $_SESSION['email'] = $dados['email'];
+            $_SESSION['nome'] = $dados['nome'];
+            $_SESSION['controle'] = $dados['senha'];
 
             return true;
         } else {

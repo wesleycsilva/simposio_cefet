@@ -2,14 +2,44 @@ jQuery(document).ready(function ($) {
     "use strict";
     $('#cpf').mask("999.999.999-99");
     $('#telefone').mask("(99) 99999-9999");
-    // dataPickerPeriodo('dataNascimento');
+    // $('#dataNascimento').datepicker();
+
+    $(".aluno").css("display", "none");
+    $(".externo").css("display", "none");
+    $(".all").css("display", "none");
+
+    $('input:radio[name="controleRadios"]').change(function() {
+        var checkbox = $("input[type=radio][name=controleRadios]:checked").val();
+        if (checkbox == 1) {
+            $(".externo").css("display", "none");
+            $(".aluno").css("display", "block");
+            $(".all").css('display','block');
+        } else if (checkbox == 2) {
+            $(".aluno").css('display','none');
+            $(".externo").css("display", "block");
+            $(".all").css("display", "block");
+        }
+    });
 
     var form = $("#formCadastrar");
 
     var validador = $('#formCadastrar').validate({
         rules: {
             nome: {required: true},
-            matricula: {required: true},
+            matricula: {
+                required: function (elem) {
+                    return $("input[type=radio][name=controleRadios]:checked").val() == 1
+                }
+            },
+            // matricula: {required: true, minlength: 12},
+            instituicao: {required: function (elem) {
+                    return $("input[type=radio][name=controleRadios]:checked").val() == 2
+                }
+            },
+            cidade: {required: function (elem) {
+                    return $("input[type=radio][name=controleRadios]:checked").val() == 2
+                }
+            },
             email: {required: true},
             emailConfirmacao: {required: true, equalTo: '#email'},
             dataNascimento: {required: true},
@@ -21,7 +51,9 @@ jQuery(document).ready(function ($) {
         },
         messages: {
             nome: {required: "* Nome é obrigatório!"},
-            matricula: {required: "* Matrícula é obrigatório!"},
+            matricula: {required: "* Matrícula é obrigatório!", minlength: "*Matrícula tem 12 dígitos"},
+            instituicao: {required: "* Instituição é obrigatório!"},
+            cidade: {required: "* Cidade da Instituição é obrigatório!"},
             email: {required: "* E-mail é obrigatório!"},
             emailConfirmacao: {
                 required: "* Confirmação do e-mail é obrigatório!",
@@ -41,15 +73,20 @@ jQuery(document).ready(function ($) {
 
     //Contact
     $('form.contactForm').submit(function () {
+
+        console.log('qqqqq');
         if (form.valid()) {
-            var nome = $('#nome').val();
-            var matricula = $('#matricula').val();
-            var email = $('#email').val();
-            var dataNascimento = $('#dataNascimento').val();
-            var cpf = $('#cpf').val();
-            var rg = $('#rg').val();
-            var telefone = $('#telefone').val();
-            var password = $('#password').val();
+            var nome            = $('#nome').val();
+            var matricula       = $('#matricula').val();
+            var email           = $('#email').val();
+            var dataNascimento  = $('#dataNascimento').val();
+            var cpf             = $('#cpf').val();
+            var rg              = $('#rg').val();
+            var telefone        = $('#telefone').val();
+            var password        = $('#password').val();
+            var instituicao     = $('#instituicao').val();
+            var cidade          = $('#cidade').val();
+            var checkbox = $("input[type=radio][name=controleRadios]:checked").val();
 
             $.ajax({
                 type: "POST",
@@ -63,15 +100,21 @@ jQuery(document).ready(function ($) {
                     rg: rg,
                     telefone: telefone,
                     password: password,
-                    controle: "inscrever"
+                    controle: "inscrever",
+                    instituicao: instituicao,
+                    cidade: cidade,
+                    checkbox: checkbox
+
                 },
                 success: function (msg) {
                     if (msg == 'OK') {
                         $("#modalCadastro").modal('show');
                         window.setTimeout(function () {
                             window.location.href = "index.php";
-                        }, 5000);
+                        }, 4000);
                     } else {
+                        // alert(msg);
+                        $('#textErro').text(msg);
                         $("#modalCadastroErro").modal('show');
                     }
 
