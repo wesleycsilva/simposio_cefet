@@ -57,21 +57,37 @@ class Inscricao
     {
         $consultaInscricao = self::listarPorInscricao($this->idEvento, $this->idSimposista);
         if (count($consultaInscricao) == 0) {
-            $query = "INSERT INTO inscricao (idEvento, idSimposista, situacao, urlQrCode)
+
+            $resultadoInscritos = self::consultaQtdInscritos($this->idEvento);
+            $haVagas = self::verificaVagas($resultadoInscritos);
+
+            if ($haVagas) {
+                $query = "INSERT INTO inscricao (idEvento, idSimposista, situacao, urlQrCode)
                   VALUES (:idEvento, :idSimposista, :situacao, :urlQrCode)";
-            $conexao = ConexaoUser::pegarConexao();
-            $stmt = $conexao->prepare($query);
-            $stmt->bindValue(':idEvento', $this->idEvento);
-            $stmt->bindValue(':idSimposista', $this->idSimposista);
-            $stmt->bindValue(':situacao', $this->situacao);
-            $stmt->bindValue(':urlQrCode', $this->urlQrCode);
-            $stmt->execute();
-            return true;
+                $conexao = ConexaoUser::pegarConexao();
+                $stmt = $conexao->prepare($query);
+                $stmt->bindValue(':idEvento', $this->idEvento);
+                $stmt->bindValue(':idSimposista', $this->idSimposista);
+                $stmt->bindValue(':situacao', $this->situacao);
+                $stmt->bindValue(':urlQrCode', $this->urlQrCode);
+                $stmt->execute();
+                return ['status' => 200, 'mensagem' => 'Inscrição foi relizada com sucesso!'];
+            } else {
+                return ['status' => 400, 'mensagem' => 'Não há vagas disponíveis para esse evento!'];
+            }
         } else {
-            $this->id = $consultaInscricao[0]["idInscricao"];
-            $this->situcao = 1;
-            self::atualizar();
-            return false;
+
+            $resultadoInscritos = self::consultaQtdInscritos($this->idEvento);
+            $haVagas = self::verificaVagas($resultadoInscritos);
+
+            if ($haVagas) {
+                $this->id = $consultaInscricao[0]["idInscricao"];
+                $this->situcao = 1;
+                self::atualizar();
+                return ['status' => 200, 'mensagem' => 'Inscrição foi relizada com sucesso!'];
+            } else {
+                return ['status' => 400, 'mensagem' => 'Não há vagas disponíveis para esse evento!'];
+            }
         }
     }
 
@@ -96,6 +112,7 @@ class Inscricao
 
     public function atualizar()
     {
+        self::consultaQtdInscritos($this->idEvento);
         $query = "UPDATE inscricao SET situacao = :situacao, urlQrCode = :urlQrCode WHERE idInscricao = :id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
@@ -112,5 +129,40 @@ class Inscricao
         $stmt = $conexao->prepare($query);
         $stmt->bindValue('id', $this->id);
         $stmt->execute();
+    }
+
+    public function consultaQtdInscritos($idEvento)
+    {
+        $query = "SELECT * FROM evento WHERE idEvento = :id";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue('id', $idEvento);
+        $stmt->execute();
+        $dadosEvento = $stmt->fetch();
+
+        $resultadoInscritos['qtdInscritos'] = $dadosEvento['qtdTotal'];
+        $resultadoInscritos['qtdTotal'] = $dadosEvento['qtdTotal'];
+        $resultadoInscritos['qtdInscritosExternos'] = $dadosEvento['qtdInscritosExternos'];
+        $resultadoInscritos['qtdTotalExternos'] = $dadosEvento['qtdTotalExternos'];
+
+        return $resultadoInscritos;
+    }
+
+    public function verificaVagas($resultadoInscritos)
+    {
+        $tipoCadastro = $_SESSION['tipoCadastro'];
+        $retorno = true;
+
+        if ($tipoCadastro == 1) {
+            if (($resultadoInscritos['qtdInscritos'] + 1) > $resultadoInscritos['qtdTotal']) {
+                $retorno = false;
+            }
+        } elseif ($tipoCadastro == 2) {
+            if (($resultadoInscritos['qtdInscritosExternos'] + 1) > $resultadoInscritos['qtdTotalExternos']) {
+                $retorno = false;
+            }
+        }
+
+        return $retorno;
     }
 }

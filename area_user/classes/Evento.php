@@ -27,7 +27,7 @@ class Evento
     {
         $query = "SELECT ev.idEvento AS idEvento, ev.idSimposio AS idSimposio, ev.titulo AS titulo,
                     ev.descricao AS descricao, ev.data AS data, ev.informacoes AS informacoes, ev.local AS local,
-                    ev.qtdInscritos AS qtdInscritos, ev.qdtTotal AS qdtTotal, ev.dataHoraInicio AS dataHoraInicio,
+                    ev.qtdInscritos AS qtdInscritos, ev.qtdTotal AS qtdTotal, ev.dataHoraInicio AS dataHoraInicio,
                     ev.dataHoraFinal AS dataHoraFinal, ins.idInscricao AS idInscricao, ins.situacao AS situacao
                 FROM
                     simposio.evento ev

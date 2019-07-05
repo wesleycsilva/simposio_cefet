@@ -132,9 +132,9 @@ try {
                             }
                         }).done(function (msg) {
                             swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
-                            setInterval(function(){
-                                window.location.reload(); // this will run after every 5 seconds
-                            }, 3000);
+                            // setInterval(function(){
+                            //     window.location.reload(); // this will run after every 5 seconds
+                            // }, 3000);
                         })
 
                     } else {
@@ -168,9 +168,9 @@ try {
                             },
                         }).done(function (msg) {
                             swal("Deletado!", "Insrição excluida com sucesso!", "success");
-                            setInterval(function(){
-                                window.location.reload(); // this will run after every 5 seconds
-                            }, 3000);
+                            // setInterval(function(){
+                            //     window.location.reload(); // this will run after every 5 seconds
+                            // }, 3000);
                         })
                     } else {
                         swal("Cancelado", "Sua inscrição continua ativa!", "error");

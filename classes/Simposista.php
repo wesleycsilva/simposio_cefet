@@ -171,6 +171,7 @@ class Simposista
             $_SESSION['email'] = $dados['email'];
             $_SESSION['nome'] = $dados['nome'];
             $_SESSION['controle'] = $dados['senha'];
+            $_SESSION['tipoSimposista'] = $dados['tipoSimposista'];
 
             return true;
         } else {

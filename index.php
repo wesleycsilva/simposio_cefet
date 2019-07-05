@@ -8,7 +8,8 @@
     <div class="container d-flex h-100">
         <div class="row justify-content-center align-self-center">
             <div class="col-md-12 intro-info order-md-first order-last">
-                <h2>I° Simpósio de Engenharia Civil</br> Materiais, Sustentabilidade e Inovações Tecnológicas </br>
+                <h2>I° Simpósio de Engenharia Civil:</br> Materiais, Sustentabilidade e Inovações Tecnológicas </br>
+                    <span class="text-black-50">08 e 09 de agosto de 2019</span> </br>
                     <span>CEFET-MG</span></h2>
                 <div>
                     <a href="cadastrar.php" class="btn-get-started scrollto">Cadastre-se</a>
@@ -142,7 +143,7 @@
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>Eng. Romário de Souza Lima</h4>
-                                    <span>Belgo Bekaert</span>
+                                    <span>Belgo Bekaert Arames</span>
                                 </div>
                             </div>
                         </div>
@@ -615,7 +616,7 @@
                     <div class="testimonial-item">
                         <img src="img/romario.jpeg" class="testimonial-img" alt="" style="height: 285px; width: 255px;">
                         <h3>Eng. Romário de Souza Lima</h3>
-                        <h4>Belgo Bekaert</h4>
+                        <h4>Belgo Bekaert Arames</h4>
                         <p class="text-justify">
                              Engenheiro Civil graduado pela Universidade FUMEC (2015), especialista em Construção Civil
                             com ênfase em Sustentabilidade e Gestão do Ambiente Construído pela Universidade Federal de

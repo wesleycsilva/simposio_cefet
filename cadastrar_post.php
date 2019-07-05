@@ -46,8 +46,8 @@ try {
     $simposista->rg = $funcao->retirarCaracterRg($rg);
     $simposista->telefone = $funcao->retirarCaracterTelefone($telefone);
     $simposista->senha = $senha;
-    $simposista->instituicao = $instituicao;
-    $simposista->cidade = $cidade;
+    $simposista->instituicao = strtoupper($instituicao);
+    $simposista->cidade = strtoupper($cidade);
     $simposista->tipoSimposista = $tipoSimposista;
 
     $retorno = $simposista->inserir();

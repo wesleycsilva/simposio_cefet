@@ -24,16 +24,6 @@ try {
             break;
     }
 
-    exit;
-
-    return $retorno;
-
-//    var_dump($retorno);exit;
-//    array(2) { ["status"]=> string(3) "200" ["mensagem"]=> string(7) "Sucesso" }
-
-    # TODO criar um mensagem com inscrição realizada com sucesso (modal) e dar um refresh na página
-    header('Location: index.php');
-
 
 } catch (Exception $e) {
     Erro::trataErro($e);
