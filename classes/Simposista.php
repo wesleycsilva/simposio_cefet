@@ -69,7 +69,7 @@ class Simposista
     public static function verificarCpf($cpf)
     {
         $query = "SELECT idSimposista FROM simposista WHERE cpf = :cpf";
-        $conexao = ConexaoUser::pegarConexao();
+        $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':cpf', $cpf);
         $stmt->execute();
@@ -84,7 +84,7 @@ class Simposista
     public static function verificarMatricula($matricula)
     {
         $query = "SELECT idSimposista FROM simposista WHERE matricula = :matricula";
-        $conexao = ConexaoUser::pegarConexao();
+        $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':matricula', $matricula);
         $stmt->execute();
@@ -98,6 +98,20 @@ class Simposista
 
     public function inserir()
     {
+        $verificaMatricula = self::verificarMatricula($this->matricula);
+
+        if ($this->tipoSimposista == 1) {
+            if (!$verificaMatricula) {
+                return ['status' => '400', 'mensagem' => 'Matrícula já cadastrada no sistema!'];
+            }
+        }
+
+        $verificaCpf = self::verificarCpf($this->cpf);
+
+        if ($verificaCpf) {
+            return ['status' => '400', 'mensagem' => 'CPF já cadastrado no sistema!'];
+        }
+
         $query = "INSERT INTO simposista (nome, matricula, email, dataNascimento, cpf, rg, telefone, senha, instituicao, cidade, tipoSimposista)
                 VALUES (:nome, :matricula, :email, :dataNascimento, :cpf, :rg, :telefone, :senha, :instituicao, :cidade, :tipoSimposista)";
         try {
@@ -116,9 +130,9 @@ class Simposista
             $stmt->bindValue(':tipoSimposista', $this->tipoSimposista);
             $stmt->execute();
 
-            return ['status' => '200'];
+            return ['status' => '200', 'mensagem' => 'Matrícula realizada com sucesso!'];
         } catch (Exception $e) {
-            return ['status' => '400'];
+            return ['status' => '400', 'mensagem' => 'Matrícula já cadastrada no sistema!'];
         }
     }
 

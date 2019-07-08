@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
             cpf: {required: true},
             rg: {required: true},
             telefone: {required: true},
-            password: {required: true},
+            password: {required: true, minlength: 6},
             passwordConfirmacao: {required: true, equalTo: '#password'}
         },
         messages: {
@@ -63,7 +63,7 @@ jQuery(document).ready(function ($) {
             cpf: {required: "* CPF é obrigatório!"},
             rg: {required: "* RG é obrigatório!"},
             telefone: {required: "* Telefone é obrigatório!"},
-            password: {required: "* A Senha é obrigatório!"},
+            password: {required: "* A Senha é obrigatório!", minlength: "*Mínimo 6 caracteres"},
             passwordConfirmacao: {
                 required: "* Confirmação da senha é obrigatório!",
                 equalTo: "* A senha e a confirmação não estão coincidindo!"

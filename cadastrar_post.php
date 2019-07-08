@@ -18,20 +18,22 @@ try {
     $simposista = new Simposista();
     $funcao = new Funcao();
 
-    $retornoMatricula = validaMatricula($matricula);
+    if ($checkbox == 1) {
+        $retornoMatricula = validaMatricula($matricula);
 
-    if ($retornoMatricula['status'] != 200) {
-        echo $retornoMatricula['mensagem'];
-        exit;
+        if ($retornoMatricula['status'] != 200) {
+            echo $retornoMatricula['mensagem'];
+            exit;
+        }
     }
 
 
     $funcao = new Funcao();
 
-    if (!$funcao->validarCPF($cpf)) {
-        echo 'Erro! CPF inválido. Por gentileza verifique os dados!';
-        exit;
-    }
+//    if (!$funcao->validarCPF($cpf)) {
+//        echo 'Erro! CPF inválido. Por gentileza verifique os dados!';
+//        exit;
+//    }
 
     $tipoSimposista = 1;
     if ($checkbox == 2) {
@@ -55,7 +57,7 @@ try {
     if ($retorno['status'] == 200) {
         echo 'OK';
     } else {
-        echo 'Erro';
+        echo $retorno['mensagem'];
     }
 } catch (Exception $e) {
     Erro::trataErro($e);

@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="footer-info">
-                        <h5>I° Simpósio de Engenharia Civil</br> Materiais, Sustentabilidade e Inovações
+                        <h5>I Simpósio de Engenharia Civil</br> Materiais, Sustentabilidade e Inovações
                             Tecnológicas </h5>
                         <p>O Simpósio será realizado nos dias <strong>08 e 09 de agosto de 2019</strong> no
                             Centro Federal de

@@ -19,9 +19,14 @@
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="vendor/chartjs/Chart.bundle.min.js"></script>
 <script src="vendor/select2/select2.min.js"></script>
+<script src="../lib/jquery/jquery-migrate.min.js"></script>
+<script src="../lib/jquery/jquery-ui.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="js/userloginform.js"></script>
 
 </body>
 

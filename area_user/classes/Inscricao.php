@@ -165,4 +165,27 @@ class Inscricao
 
         return $retorno;
     }
+
+    public function retornaInscricao($idEvento, $idSimposista)
+    {
+        $query = "SELECT * FROM inscricao WHERE idEvento = :idEvento and idSimposista = :idSimposista";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':idEvento', $idEvento);
+        $stmt->bindValue(':idSimposista', $idSimposista);
+        $stmt->execute();
+        $inscricao = $stmt->fetch();
+
+        if (is_array($inscricao)) {
+            $dadosInscricao['idInscricao'] = $inscricao['idInscricao'];
+            $dadosInscricao['idEvento'] = $inscricao['idEvento'];
+            $dadosInscricao['idSimposista'] = $inscricao['idSimposista'];
+            $dadosInscricao['situacao'] = $inscricao['situacao'];
+            $dadosInscricao['urlQrCode'] = $inscricao['urlQrCode'];
+        } else {
+            $dadosInscricao['idInscricao'] = null;
+        }
+
+        return $dadosInscricao;
+    }
 }

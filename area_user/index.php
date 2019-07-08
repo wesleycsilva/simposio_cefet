@@ -33,25 +33,9 @@ validaLogin();
                                 <div class="au-task__title">
                                     <p><strong>Local:</strong> Anfiteatro do Centro Federal de Educação Tecnológico
                                         de Minas Gerais,
-                                        CEFETMG, Campus Varginha.</p>
+                                        CEFET/MG, Campus Varginha.</p>
                                 </div>
                                 <div class="au-task-list js-scrollbar3">
-                                    <div class="au-task__item au-task__item--danger">
-                                        <div class="au-task__item-inner">
-                                            <h5 class="task">
-                                                <a href="#">Recepção e Credenciamento</a>
-                                            </h5>
-                                            <span class="time">17:30 às 18:30 horas</span>
-                                        </div>
-                                    </div>
-                                    <div class="au-task__item au-task__item--warning">
-                                        <div class="au-task__item-inner">
-                                            <h5 class="task">
-                                                <a href="#">Jantar</a>
-                                            </h5>
-                                            <span class="time">17:30 às 18:30 horas</span>
-                                        </div>
-                                    </div>
                                     <div class="au-task__item au-task__item--primary">
                                         <div class="au-task__item-inner">
                                             <h5 class="task">
@@ -100,7 +84,7 @@ validaLogin();
                                     <p><strong>Local:</strong> Hall da Biblioteca do Centro Federal de Educação
                                         Tecnológico
                                         de Minas Gerais,
-                                        CEFETMG, Campus Varginha.</p>
+                                        CEFET/MG, Campus Varginha.</p>
                                 </div>
                                 <div class="au-task-list js-scrollbar3">
                                     <div class="au-task__item au-task__item--danger">
@@ -108,7 +92,7 @@ validaLogin();
                                             <h5 class="task">
                                                 <a href="#">Visita técnica 1: Pedreira Santo Antônio</a>
                                             </h5>
-                                            <span class="time">14:30 às 16:30 horas</span>
+                                            <span class="time">13:00 às 15:30 horas</span>
                                         </div>
                                     </div>
                                     <div class="au-task__item au-task__item--warning">
@@ -117,15 +101,7 @@ validaLogin();
                                                 <a href="#">Visita técnica 2: ECOVIA – Reciclagem de Resíduos da
                                                     Construção Civil Ltda.</a>
                                             </h5>
-                                            <span class="time">14:30 às 16:30 horas</span>
-                                        </div>
-                                    </div>
-                                    <div class="au-task__item au-task__item--primary">
-                                        <div class="au-task__item-inner">
-                                            <h5 class="task">
-                                                <a href="#">Jantar</a>
-                                            </h5>
-                                            <span class="time">17:30 às 18:30 horas</span>
+                                            <span class="time">14:00 às 16:30 horas</span>
                                         </div>
                                     </div>
                                     <div class="au-task__item au-task__item--success">
@@ -147,7 +123,7 @@ validaLogin();
                                             </h5>
                                             <span class="time">20:30 às 21:40 horas</span>
                                             <p class="small">Prof. Conrado de Souza Rodrigues - Centro Federal de
-                                                Educação Tecnológica de Minas Gerais (CEFETMG)
+                                                Educação Tecnológica de Minas Gerais (CEFET/MG)
                                             </p>
                                         </div>
                                     </div>

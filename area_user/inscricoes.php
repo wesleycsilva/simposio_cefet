@@ -22,7 +22,10 @@ try {
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
-                        <?php foreach ($lista as $linha): ?>
+                        <?php foreach ($lista as $linha):
+                            $inscricao = new Inscricao();
+                            $dadosInscricao = $inscricao->retornaInscricao($linha['idEvento'], $_SESSION['idSimposista']);
+                            ?>
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -33,7 +36,6 @@ try {
                                         if ($linha['descricao'] != "") {
                                             list($palestrante, $nota) = explode("-", $linha['informacoes']);
                                         }
-
                                         ?>
                                         <h4><?= $dia ?> de Agosto de <?= $ano ?>
                                             - <?= utf8_encode($linha['titulo']) ?></h4>
@@ -58,15 +60,33 @@ try {
                                                 <span class="text-info"><?= utf8_encode($nota) ?></span>
                                             </p>
                                         <?php endif; ?>
+                                        <?php if ($dadosInscricao['idInscricao'] != null) :
+                                            if ($dadosInscricao['situacao'] == 1) :?>
+                                                <p class="text-muted m-b-15">
+                                                    <strong>Situação:</strong> <span
+                                                            class="text-success">Inscrição realizada</span>
+                                                </p>
+                                            <?php elseif ($dadosInscricao['situacao'] == 2) : ?>
+                                                <p class="text-muted m-b-15">
+                                                    <strong>Situação:</strong> <span
+                                                            class="text-danger">Inscrição não realizada</span>
+                                                </p>
+                                            <?php endif; ?>
+                                        <?php else: ?>
+                                            <p class="text-muted m-b-15">
+                                                <strong>Situação:</strong> <span
+                                                        class="text-danger">Inscrição não realizada</span>
+                                            </p>
+                                        <?php endif; ?>
                                         <div class="card-body align-items-center">
                                             <?php
                                             $controleInscricao = '';
                                             $controleCancelar = 'disabled';
-                                            if ($linha['idInscricao'] != null) :
-                                                if ($linha['situacao'] == 1) : //inscricao ativa
+                                            if ($dadosInscricao['idInscricao'] != null) :
+                                                if ($dadosInscricao['situacao'] == 1) : //inscricao ativa
                                                     $controleInscricao = 'disabled';
                                                     $controleCancelar = '';
-                                                elseif ($linha['situacao'] == 2) : //inscricao cancelada
+                                                elseif ($dadosInscricao['situacao'] == 2) : //inscricao cancelada
                                                     $controleInscricao = '';
                                                     $controleCancelar = 'disabled';
                                                 endif;
@@ -132,9 +152,9 @@ try {
                             }
                         }).done(function (msg) {
                             swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
-                            // setInterval(function(){
-                            //     window.location.reload(); // this will run after every 5 seconds
-                            // }, 3000);
+                            setInterval(function () {
+                                window.location.reload(); // this will run after every 5 seconds
+                            }, 3000);
                         })
 
                     } else {
@@ -168,9 +188,9 @@ try {
                             },
                         }).done(function (msg) {
                             swal("Deletado!", "Insrição excluida com sucesso!", "success");
-                            // setInterval(function(){
-                            //     window.location.reload(); // this will run after every 5 seconds
-                            // }, 3000);
+                            setInterval(function () {
+                                window.location.reload(); // this will run after every 5 seconds
+                            }, 3000);
                         })
                     } else {
                         swal("Cancelado", "Sua inscrição continua ativa!", "error");

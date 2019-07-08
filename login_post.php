@@ -24,7 +24,6 @@ function login($simposista)
         $email = addslashes($_POST['email']);
         $senha = addslashes($_POST['password']);
 
-        //verificar se está preenchido
         if (!empty($email) && !empty($senha)) {
             if ($simposista->logar($email, $senha)) {
                 echo "OK";
@@ -122,11 +121,11 @@ function enviarEmailContato()
         $mail->Port = 587;                                    // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('wesleycsilva@yahoo.com.br', 'Simposio 2019');
-        $mail->addAddress('wesleycsilva@yahoo.com.br', 'Wesley Caetano');     // Add a recipient
+        $mail->setFrom('maggeisiellly@yahoo.com.br', 'Simposio 2019');
+        $mail->addAddress('maggeisiellly@yahoo.com.br', 'Mag Geisielly');     // Add a recipient
 //        $mail->addAddress('ellen@example.com');               // Name is optional
 //        $mail->addReplyTo('info@example.com', 'Information');
-        $mail->addCC('maggeisiellly@yahoo.com.br');
+//        $mail->addCC('maggeisiellly@yahoo.com.br');
 //        $mail->addBCC('bcc@example.com');
         $html = 'E-mail formul&aacute;rio de contato do <b>Simp&oacute;sio!</b><br><br>
                  <b>Nome:</b> ' . $_POST['emailContato'] . '<br><br>
@@ -137,7 +136,7 @@ function enviarEmailContato()
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Simposio 2019 - CefetMG';
+        $mail->Subject = 'Simposio 2019 - Cefet/MG';
         $mail->Body = $html;
         $mail->AltBody = 'Este é o corpo em texto sem formatação para clientes de email não HTML';
 

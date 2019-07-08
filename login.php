@@ -12,7 +12,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h4 class="text-center">I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações
+                    <h4 class="text-center">I Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações
                         Tecnológicas </h4>
                 </div>
             </div>
@@ -36,17 +36,6 @@
                                 <button type="submit" title="Cadastrar" class="btn btn-primary btn-block">Entrar
                                 </button>
                             </div>
-                            <div class="form-group text-right">
-                                <!--                                <a href="#" data-toggle="modal" data-target="#modalLembrarSenha" class="text-info small btn-esqueci-minha-senha">-->
-                                <small class="semi-bold"> Clique aqui</small>
-                                </a>
-                                <small class="small">
-                                    Esqueceu sua senha?
-                                    <a href="#" data-toggle="modal" data-target="#modalLembrarSenha"
-                                       class="text-info small"><strong>Clique aqui</strong></a>
-                                </small>
-                            </div>
-
                             <hr>
                             <div class="form-group text-center">
                                 <small class="small">

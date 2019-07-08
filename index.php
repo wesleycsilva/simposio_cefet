@@ -8,7 +8,7 @@
     <div class="container d-flex h-100">
         <div class="row justify-content-center align-self-center">
             <div class="col-md-12 intro-info order-md-first order-last">
-                <h2>I° Simpósio de Engenharia Civil:</br> Materiais, Sustentabilidade e Inovações Tecnológicas </br>
+                <h2>I Simpósio de Engenharia Civil:</br> Materiais, Sustentabilidade e Inovações Tecnológicas </br>
                     <span class="text-black-50">08 e 09 de agosto de 2019</span> </br>
                     <span>CEFET-MG</span></h2>
                 <div>
@@ -41,27 +41,33 @@
                     <div class="about-content">
                         <h2>I Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações Tecnológicas</h2>
                         <p class="text-justify">O I Simpósio de Engenharia Civil: Materiais, Sustentabilidade e
-                            Inovações Tecnológicas tem como objetivo contribuir na capacitação dos
-                            discentes do curso de Engenharia Civil nas aplicabilidades de materiais nos distintos
-                            setores e de suas propriedades. Desenvolver o espírito crítico acerca dos impactos sociais,
-                            ambientais e econômicos dos materiais de engenharia e de inovações tecnológicas, por meio de
-                            palestras com docentes e empresas renomadas na área e a realização de visitas técnicas, que
-                            ocorrerão em uma jazida de gnaisse (obtenção de britas e areia artificiais) e na usina de
-                            reciclagem de resíduos de construção e demolição, ambas em Varginha.
+                            Inovações Tecnológicas tem como objetivo contribuir na capacitação de futuros profissionais
+                            da Engenharia Civil quanto as propriedades e aplicações dos materiais de construção civil,
+                            bem como desenvolver o espírito crítico acerca dos impactos sociais, ambientais e econômicos
+                            dos materiais e de suas inovações tecnológicas. A programação do Simpósio inclui a
+                            participação de docentes com atuação em ensino e pesquisa e também de empresas do mercado da
+                            construção civil com a promoção de palestras e visitas técnicas. O evento é destinado a
+                            discentes do curso de Engenharia Civil do CEFET/MG, Campus Varginha, bem como membros do
+                            CREAJr Varginha.
                         </p>
                         <p class="text-justify">No anseio de fomentar a responsabilidade social dos futuros
-                            profissionais, o evento irá
-                            incentivar a doação de alimentos não perecíveis e de fraldas geriátricas ao Lar São Vicente
-                            de Paulo da cidade de Varginha, compreendendo também a entrega dos itens a serem arrecadados
-                            com a participação e o envolvimento dos discentes.
+                            profissionais, o evento irá incentivar a doação de alimentos (leite e café) e de fraldas
+                            geriátricas (tamanhos G ou XG) ao Lar São Vicente de Paulo da cidade de Varginha,
+                            compreendendo também a entrega dos itens a serem arrecadados com a participação e o
+                            envolvimento dos discentes.
+                        </p>
+                        <p class="text-justify">O evento é uma iniciativa do grupo de pesquisa Geossintéticos Aplicados
+                            em Obras Civis e Ambientais e que tem atuado na linha de pesquisa de Manejo de Resíduos e
+                            Rejeitos, liderado pela professora Denise de Carvalho Urashima, e contará com o apoio do
+                            Diretório Acadêmico de Engenharia Civil (DAEC) e da Associação Atlética Urashima Esporte
+                            Clube (AAUEC).
                         </p>
                         <ul>
                             <li>
                                 <i class="ion-android-checkmark-circle"></i> O Simpósio será realizado nos dias <strong>08
                                     e 09
                                     de agosto de 2019</strong> no Centro Federal de Educação Tecnológica de Minas
-                                Gerais, Campus
-                                Varginha
+                                Gerais, Campus Varginha.
                             </li>
                             <li>
                                 <i class="ion-android-checkmark-circle"></i> Desde já contamos com a participação de
@@ -164,7 +170,7 @@
             </br>
             <div class="row feature-item">
                 <div class="col-lg-4 wow fadeInUp">
-                    <img src="http://pedreirasantoantonio.com.br/wp-content/uploads/2018/10/logo-pedreira-santo-antonio.png"
+                    <img src="img/pedreira_santo_antonio.png"
                          class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 wow fadeInUp pt-5 pt-lg-0">
@@ -214,7 +220,7 @@
         <div class="container">
             <header class="section-header">
                 <h3>Programação</h3>
-                <p>Confira abaixo a agenda do <strong>I° Simpósio de Engenharia Civil
+                <p>Confira abaixo a agenda do <strong>I Simpósio de Engenharia Civil
                         Materiais, Sustentabilidade e Inovações Tecnológicas</strong>.
 
                     </br></br>*Sujeita a alterações.</p>
@@ -233,9 +239,6 @@
                                 Tecnológico de Minas
                                 Gerais, CEFETMG, Campus Varginha.</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Recepção e Credenciamento - Horário: 17:00 às 17:30 horas
-                                </li>
-                                <li class="list-group-item">Jantar - Horário: 17:30 às 18:30 horas</li>
                                 <li class="list-group-item">Abertura do evento - Horário: 18:50 às 19:00 horas<br>
                                     Profas. Denise de Carvalho Urashima e Mag Geisielly Alves Guimarães - Curso de
                                     Engenharia Civil, CEFETMG - Campus Varginha
@@ -243,7 +246,7 @@
                                 <li class="list-group-item">Palestra 1: Construções Pré-Colombianas das Américas -
                                     Horário: 19:00 às 20:10 horas<br>
                                     Prof. José Celso da Cunha - Engenheiro civil e escritor no âmbito de engenharia e
-                                    arquitetura.
+                                    arquitetura
                                 </li>
                                 <li class="list-group-item">Palestra 2: Concreto Reforçado com Fibras de Aço:
                                     Propriedades, Aplicações
@@ -267,24 +270,21 @@
                             <h3><span class="currency">*</span>09<span class="period">/agosto</span></h3>
                         </div>
                         <div class="card-block">
-                            <h4 class="card-title">Local: Hall da Biblioteca do CEFETMG, Campus Varginha
-                                Horário: 14:30 às 16:30 horas</h4>
+                            <h4 class="card-title">Local: Hall da Biblioteca do CEFETMG, Campus Varginha</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Visita técnica 1: Pedreira Santo Antônio</li>
+                                <li class="list-group-item">Visita técnica 1: Pedreira Santo Antônio - Horário: 13:00 às 15:30 horas</li>
                                 <li class="list-group-item">Visita técnica 2: ECOVIA – Reciclagem de Resíduos da
-                                    Construção Civil Ltda.
+                                    Construção Civil Ltda - Horário: 14:00 às 16:30 horas
                                 </li>
-                                <li class="list-group-item">Jantar - Horário: 17:30 às 18:30 horas</li>
                                 <li class="list-group-item">Palestra 1: Inovações, Tecnologia e Sustentabilidade nas
-                                    Construções em
-                                    Madeira. - Horário: 19:00 às 20:10 horas<br>
+                                    Construções em Madeira - Horário: 19:00 às 20:10 horas<br>
                                     Prof. Francisco Carlos Gomes - Universidade Federal de Lavras - UFLA
                                 </li>
                                 <li class="list-group-item">Palestra 2: Resíduos Agroindustriais para a Produção de
                                     Cimentos de Baixo
                                     Impacto Ambiental - Horário: 20:30 às 21:40 horas<br>
                                     Prof. Conrado de Souza Rodrigues - Centro Federal de Educação Tecnológica de Minas
-                                    Gerais (CEFETMG)
+                                    Gerais (CEFET/MG)
                                 </li>
                             </ul>
                             <a href="#services" class="btn">Inscreva-se</a>
@@ -302,9 +302,9 @@
                             <h3><span class="currency">*</span>12<span class="period">/agosto</span></h3>
                         </div>
                         <div class="card-block">
-                            <h4 class="card-title">Visita ao Lar São Vicente de Paula - Varginha/MG</h4>
+                            <h4 class="card-title">Visita ao Lar São Vicente de Paulo - Varginha/MG</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Horário: a definir</li>
+                                <li class="list-group-item">Data e Horário: a definir</li>
                             </ul>
                             <a href="http://www.larsaovicentevga.org.br/instituicao/" class="btn" target="_blank">Visite
                                 o site</a>
@@ -324,7 +324,7 @@
         <div class="container-fluid">
 
             <header class="section-header">
-                <h3>Lar São Vicente de Paula</h3>
+                <h3>Ação Social <br>Lar São Vicente de Paulo</h3>
                 </br>
             </header>
 
@@ -339,10 +339,10 @@
 
                 <div class="col-lg-6">
                     <div class="why-us-content">
-                        <p class="text-justify">O Lar São Vicente de Paula, fundado em 21 de fevereiro de 1934, é uma
+                        <p class="text-justify">O Lar São Vicente de Paulo, fundado em 21 de fevereiro de 1934, é uma
                             entidade sem fins lucrativos e seu trabalho consiste no atendimento em Instituição de Longa
                             Permanência para Idosos de ambos os sexos. As atividades desenvolvidas pelo Lar São Vicente
-                            de Paula são de ação continuada, priorizando o atendimento de idosos residentes em
+                            de Paulo são de ação continuada, priorizando o atendimento de idosos residentes em
                             Varginha/MG, que estão em situação de risco e/ou vulnerabilidade social, que não possuam
                             condições materiais e/ou físicas para prover sua subsistência e, preferencialmente, que não
                             possuam família ou, se a possuem, ela não apresenta condições de oferecer ao idoso os
@@ -355,11 +355,18 @@
 
                         <div class="features wow bounceInUp clearfix">
                             <i class="fa fa-heart" style="color: #f058dc;"></i>
-                            <h4>Missão</h4>
-                            <p class="text-justify">Amparar e proteger pessoas idosas, assegurar seu bem-estar, defender
-                                sua dignidade,
-                                reduzir os fatores de risco comuns nessa fase da vida, oferecer atendimento de qualidade
-                                e trabalhar o resgate da identidade e seu protagonismo.</p>
+                            <h4>Ação Social</h4>
+                            <p class="text-justify">O evento irá incentivar a doação de leite, café e fraldas
+                                geriátricas (tamanhos G e XG) ao Lar São Vicente de Paulo. Serão sorteados livros da
+                                coletânea <strong>A História das Construções </strong> do Prof. José Celso da Cunha para
+                                os participantes da ação social.<br>
+                                As doações poderão ser entregues até o dia 09 de agosto de 2019 no local do evento.<br>
+                                Caixa de leite: 1 cupom<br>
+                                Pacote de café: 3 cupons<br>
+                                Pacote de fralda geriátrica: 8 cupons<br>
+                                <strong>Sorteio: 09 de agosto (após a última palestra)</strong>
+                            </p>
+                            <p class="text-info"><strong>Abracem essa causa conosco!</strong></p>
                         </div>
                     </div>
                 </div>
@@ -396,7 +403,7 @@
 
             <header class="section-header">
                 <h3>Inscrições</h3>
-                <p>As vagas para o <strong>I° Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações
+                <p>As vagas para o <strong>I Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações
                         Tecnológicas</strong> são limitadas.</br></br>
                     Dúvidas sobre o evento, fale conosco no e-mail </br>urashima@cefetmg.br ou mag@cefetmg.br
                 </p>
@@ -410,8 +417,9 @@
                             <i class="ion-ios-calendar-outline" style="color: #2282ff;"></i>
                         </div>
                         <h4 class="title"><a href="">1° Chamada</a></h4>
-                        <h6 class="description text-center">De 05/07 até 10/07/2019 </br> Inscrições abertas para
-                            discentes a partir do <strong>6° período</strong> do curso. E público externo (vagas limitadas).
+                        <h6 class="description text-center">De 08/07 até 14/07/2019 </br> Inscrições abertas para
+                            discentes a partir do <strong>6° período</strong> do curso. E público externo (vagas
+                            limitadas).
                         </h6>
                         <div class="">
                             <a href="cadastrar.php" class="btn btn-info">Cadastre-se</a>
@@ -424,8 +432,9 @@
                         <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-calendar-outline"
                                                                           style="color: #3fcdc7;"></i></div>
                         <h4 class="title"><a href="">2° Chamada</a></h4>
-                        <h6 class="description text-center">De 11/07 até 17/07/2019 </br> Inscrições abertas para
-                            discentes dos <strong>demais períodos </strong> do curso. E público externo (vagas limitadas).
+                        <h6 class="description text-center">De 15/07 até 21/07/2019 </br> Inscrições abertas para
+                            discentes dos <strong>demais períodos </strong> do curso. E público externo (vagas
+                            limitadas).
                         </h6>
                         <div class="">
                             <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
@@ -438,7 +447,7 @@
                         <div class="icon" style="background: #fff0da;"><i class="ion-ios-calendar-outline"
                                                                           style="color: #e98e06;"></i></div>
                         <h4 class="title"><a href="">3° Chamada</a></h4>
-                        <h6 class="description text-center">A partir de 18/07/2019 </br> Inscrições abertas apenas no
+                        <h6 class="description text-center">A partir de 22/07/2019 </br> Inscrições abertas apenas no
                             caso de <strong>vagas remanescentes</strong>. E público externo (vagas limitadas).
                         </h6>
                         <div class="">
@@ -450,6 +459,41 @@
 
         </div>
     </section><!-- #services -->
+
+    <section id="clients" class="wow fadeInUp">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <header class="section-header">
+                        <h3>Realização</h3>
+                    </header>
+                    <div class="">
+                        <img src="img/cefet.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-2 col-lg-2"></div>
+                <div class="col-md-6 col-lg-6">
+                    <header class="section-header">
+                        <h3>Apoio</h3>
+                    </header>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="img/aauec.jpeg" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/daec.jpeg" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/crea_jr.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </section><!-- #clients -->
 
 
     <!--==========================

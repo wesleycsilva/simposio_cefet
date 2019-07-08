@@ -13,7 +13,6 @@ try {
     Erro::trataErro($e);
 }
 ?>
-tt
 <?php include "menu_user.php" ?>
 <!-- PAGE CONTAINER-->
 <div class="page-container">
@@ -41,6 +40,7 @@ tt
                                                        value="<?= $simposista->nome ?>">
                                             </div>
                                         </div>
+                                        <?php if($_SESSION['tipoSimposista']  == 1) : ?>
                                         <div class="col-lg-6 col-md-12">
                                             <div class="form-group">
                                                 <label for="cc-payment" class="control-label mb-1">Matrícula</label>
@@ -50,7 +50,30 @@ tt
                                                        value="<?= $simposista->matricula ?>">
                                             </div>
                                         </div>
+                                        <?php endif; ?>
                                     </div>
+                                    <?php if($_SESSION['tipoSimposista']  == 2) : ?>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="cc-payment" class="control-label mb-1">Instituição de Ensino</label>
+                                                    <input id="cc-pament" name="cc-payment" type="text"
+                                                           class="form-control"
+                                                           aria-required="true" aria-invalid="false"
+                                                           value="<?= $simposista->instituicao ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label for="cc-payment" class="control-label mb-1">Cidade</label>
+                                                    <input id="cc-pament" name="cc-payment" type="text"
+                                                           class="form-control"
+                                                           aria-required="true" aria-invalid="false"
+                                                           value="<?= $simposista->cidade ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif;?>
                                     <div class="row">
                                         <div class="col-lg-6 col-md-12">
                                             <div class="form-group">

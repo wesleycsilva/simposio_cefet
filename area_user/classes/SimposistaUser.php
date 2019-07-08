@@ -13,6 +13,9 @@ class SimposistaUser
     public $rg;
     public $telefone;
     public $senha;
+    public $instituicao;
+    public $cidade;
+    public $tipoSimposista;
 
     public function __construct($id = false)
     {
@@ -25,7 +28,7 @@ class SimposistaUser
 
     public function carregar()
     {
-        $query = "SELECT nome, matricula, email, dataNascimento, cpf, rg, telefone, senha FROM simposista WHERE idSimposista = :id";
+        $query = "SELECT nome, matricula, email, dataNascimento, cpf, rg, telefone, senha, instituicao, cidade, tipoSimposista FROM simposista WHERE idSimposista = :id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id', $this->id);
@@ -39,6 +42,9 @@ class SimposistaUser
         $this->rg = $linha['rg'];
         $this->telefone = $linha['telefone'];
         $this->senha = $linha['senha'];
+        $this->instituicao = $linha['instituicao'];
+        $this->cidade = $linha['cidade'];
+        $this->tipoSimposista = $linha['tipoSimposista'];
     }
 
     public static function listar()
@@ -52,7 +58,7 @@ class SimposistaUser
 
     public static function listarPorSimposista($simposista_id)
     {
-        $query = "SELECT id, nome, matricula, email, dataNascimento, cpf, rg, telefone, senha FROM simposista WHERE simposista_id = :simposista_id";
+        $query = "SELECT id, nome, matricula, email, dataNascimento, cpf, rg, telefone, senha, instituicao, cidade, tipoSimposista FROM simposista WHERE simposista_id = :simposista_id";
         $conexao = ConexaoUser::pegarConexao();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':simposista_id', $simposista_id);
@@ -130,6 +136,17 @@ class SimposistaUser
         return $stmt;
     }
 
+    public function atualizaSenha($id, $senha)
+    {
+        $query = "UPDATE simposista SET senha = :senha WHERE idSimposista = :id";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':idSimposista', $id);
+        $stmt->bindValue(':senha', sha1($senha));
+        $stmt->execute();
+        return sha1($senha);
+    }
+
     public function excluir()
     {
         $query = "DELETE FROM simposista WHERE id = :id";
@@ -199,6 +216,24 @@ class SimposistaUser
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function consultaLSenhaUsuario($email, $senha)
+    {
+        //verificar se o email e senha estão cadastrado
+        $query = "SELECT * FROM simposista WHERE email = :e AND senha = :s";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":e", $email);
+        $stmt->bindValue(":s", sha1($senha));
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $dados = $stmt->fetch();
+            return ['status' => '200', 'mensagem' => $dados['idSimposista']];
+        } else {
+            return ['status' => '400', 'mensagem' => 'Erro, senha atual inválida!'];
         }
     }
 
