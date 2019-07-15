@@ -6,8 +6,8 @@
 $url = $_SERVER['SERVER_NAME'];
 
 // FUNCAO QUE VERIFICA SE O LOGIN ESTA ATIVO.
-function verificaLogin() {
-
+function verificaLogin()
+{
     if (!isset($_SESSION['email']) || !isset($_SESSION['controle'])) {
         return false;
     }
@@ -25,9 +25,9 @@ function verificaLogin() {
     }
 }
 
-
 // FUNCAO QUE VERIFICA SE O LOGIN ESTA ATIVO E SE O USUARIO TEM ACESSO A TELA ATUAL.
-function validaLogin() {
+function validaLogin()
+{
     // O LOGIN ESTA ATIVO?
     try {
         if (verificaLogin()) {
@@ -35,8 +35,7 @@ function validaLogin() {
             $_SESSION['idSimposista'];
             $_SESSION['email'];
             $_SESSION['nome'];
-            $_SESSION['controle'];;
-            session_destroy();
+            $_SESSION['controle'];
 
             echo "<script>";
             echo "alert('Sua sessao expirou. \\nFaça o Login novamente.');";

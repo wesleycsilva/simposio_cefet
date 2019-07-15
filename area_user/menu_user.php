@@ -12,6 +12,9 @@
     <!-- Title Page-->
     <title>Simpósio CefetMG</title>
 
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="img/x-icon" href="../img/simposio_logo.ico">
+
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">

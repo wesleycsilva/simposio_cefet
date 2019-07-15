@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php include "menu_user.php" ?>
 <?php require_once 'global_user.php' ?>
 <?php require_once 'valida_login.php' ?>
@@ -5,7 +6,6 @@
 try {
     $lista = Evento::listar();
     $format = new FuncaoUser();
-    session_start();
     validaLogin();
 
 } catch (Exception $e) {

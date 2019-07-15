@@ -59,8 +59,8 @@
                         <p class="text-justify">O evento é uma iniciativa do grupo de pesquisa Geossintéticos Aplicados
                             em Obras Civis e Ambientais e que tem atuado na linha de pesquisa de Manejo de Resíduos e
                             Rejeitos, liderado pela professora Denise de Carvalho Urashima, e contará com o apoio do
-                            Diretório Acadêmico de Engenharia Civil (DAEC) e da Associação Atlética Urashima Esporte
-                            Clube (AAUEC).
+                            Diretório Acadêmico de Engenharia Civil (DAEC) e da Associação Atlética Urashima da
+                            Engenharia Civil (AAUEC).
                         </p>
                         <ul>
                             <li>
@@ -272,7 +272,9 @@
                         <div class="card-block">
                             <h4 class="card-title">Local: Hall da Biblioteca do CEFETMG, Campus Varginha</h4>
                             <ul class="list-group">
-                                <li class="list-group-item">Visita técnica 1: Pedreira Santo Antônio - Horário: 13:00 às 15:30 horas</li>
+                                <li class="list-group-item">Visita técnica 1: Pedreira Santo Antônio - Horário: 13:00 às
+                                    15:30 horas
+                                </li>
                                 <li class="list-group-item">Visita técnica 2: ECOVIA – Reciclagem de Resíduos da
                                     Construção Civil Ltda - Horário: 14:00 às 16:30 horas
                                 </li>
@@ -437,7 +439,8 @@
                             limitadas).
                         </h6>
                         <div class="">
-                            <a href="#services" class="btn btn-warning text-white">Fora do período de inscrição</a>
+                            <a href="cadastrar.php" class="btn btn-info">Cadastre-se</a>
+                            <a href="login.php" class="btn btn-success text-white">Inscreva-se</a>
                         </div>
                     </div>
                 </div>

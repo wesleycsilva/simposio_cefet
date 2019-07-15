@@ -75,9 +75,9 @@ class Simposista
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 
@@ -90,9 +90,9 @@ class Simposista
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 
@@ -108,7 +108,7 @@ class Simposista
 
         $verificaCpf = self::verificarCpf($this->cpf);
 
-        if ($verificaCpf) {
+        if (!$verificaCpf) {
             return ['status' => '400', 'mensagem' => 'CPF já cadastrado no sistema!'];
         }
 

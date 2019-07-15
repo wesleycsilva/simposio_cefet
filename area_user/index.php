@@ -1,11 +1,7 @@
+<?php session_start();?>
 <?php include "menu_user.php" ?>
 <?php require_once 'valida_login.php' ?>
-<?php
-
-session_start();
-validaLogin();
-
-?>
+<?php validaLogin();?>
 <!-- PAGE CONTAINER-->
 <div class="page-container">
     <?php include "header_user.php" ?>
@@ -24,7 +20,7 @@ validaLogin();
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="au-card m-b-40">
-                            <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
+                            <div class="au-card-title" style="background-image:url();">
                                 <div class="bg-overlay bg-overlay--blue"></div>
                                 <h3>
                                     <i class="zmdi zmdi-account-calendar"></i>08 Agosto, 2019</h3>
@@ -74,7 +70,7 @@ validaLogin();
                     </div>
                     <div class="col-lg-6">
                         <div class="au-card m-b-40">
-                            <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
+                            <div class="au-card-title" style="background-image:url();">
                                 <div class="bg-overlay bg-overlay--blue"></div>
                                 <h3>
                                     <i class="zmdi zmdi-account-calendar"></i>09 Agosto, 2019</h3>

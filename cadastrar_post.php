@@ -65,19 +65,19 @@ try {
 
 function validaMatricula($matricula)
 {
-    $dataInicioPrimeiraChamada = strtotime('2019-07-05');
-    $dataFinalPrimeiraChamada = strtotime('2019-07-10');
-    $dataInicioSegundaChamada = strtotime('2019-07-11');
-    $dataFinalSegundaChamada = strtotime('2019-07-17');
-    $dataInicioTerceiraChamada = strtotime('2019-07-18');
-    $dataFinalTerceiraChamada = strtotime('2019-07-30');
+    $dataInicioPrimeiraChamada = strtotime('2019-07-08');
+    $dataFinalPrimeiraChamada = strtotime('2019-07-14');
+    $dataInicioSegundaChamada = strtotime('2019-07-15');
+    $dataFinalSegundaChamada = strtotime('2019-07-21');
+    $dataInicioTerceiraChamada = strtotime('2019-07-22');
+    $dataFinalTerceiraChamada = strtotime('2019-07-31');
 
     $arrayMatriculaPrimeiraChamada = [
         '20151', '20152', '20161', '20162', '20171'
     ];
 
     $arrayMatriculaSegundaChamada = [
-        '20172', '20181', '20182', '20191', '20192'
+        '20151', '20152', '20161', '20162', '20171', '20172', '20181', '20182', '20191', '20192'
     ];
 
     $data = strtotime(date("Y-m-d"));
