@@ -53,13 +53,19 @@ class Inscricao
         return $stmt->fetchAll();
     }
 
-    public function inserir()
+    public function inserir($tipoSimposista)
     {
         $consultaInscricao = self::listarPorInscricao($this->idEvento, $this->idSimposista);
+
+        $campoAtualizar = 'qtdInscritos';
+        if($tipoSimposista == 2) {
+            $campoAtualizar = 'qtdInscritosExternos';
+        }
+
         if (count($consultaInscricao) == 0) {
 
             $resultadoInscritos = self::consultaQtdInscritos($this->idEvento);
-            $haVagas = self::verificaVagas($resultadoInscritos);
+            $haVagas = self::verificaVagas($resultadoInscritos, $tipoSimposista);
 
             if ($haVagas) {
                 $query = "INSERT INTO inscricao (idEvento, idSimposista, situacao, urlQrCode)
@@ -71,6 +77,13 @@ class Inscricao
                 $stmt->bindValue(':situacao', $this->situacao);
                 $stmt->bindValue(':urlQrCode', $this->urlQrCode);
                 $stmt->execute();
+
+                $queryUpdate = "UPDATE evento SET $campoAtualizar = $campoAtualizar + 1 WHERE idEvento = :id";
+//                $conexao = ConexaoUser::pegarConexao();
+                $stmt = $conexao->prepare($queryUpdate);
+                $stmt->bindValue(':id', $this->idEvento);
+                $stmt->execute();
+
                 return ['status' => 200, 'mensagem' => 'Inscrição foi relizada com sucesso!'];
             } else {
                 return ['status' => 400, 'mensagem' => 'Não há vagas disponíveis para esse evento!'];
@@ -78,12 +91,19 @@ class Inscricao
         } else {
 
             $resultadoInscritos = self::consultaQtdInscritos($this->idEvento);
-            $haVagas = self::verificaVagas($resultadoInscritos);
+            $haVagas = self::verificaVagas($resultadoInscritos, $tipoSimposista);
 
             if ($haVagas) {
                 $this->id = $consultaInscricao[0]["idInscricao"];
                 $this->situcao = 1;
                 self::atualizar();
+
+                $queryUpdate = "UPDATE evento SET $campoAtualizar = $campoAtualizar + 1 WHERE idEvento = :id";
+                $conexao = ConexaoUser::pegarConexao();
+                $stmt = $conexao->prepare($queryUpdate);
+                $stmt->bindValue(':id', $this->idEvento);
+                $stmt->execute();
+
                 return ['status' => 200, 'mensagem' => 'Inscrição foi relizada com sucesso!'];
             } else {
                 return ['status' => 400, 'mensagem' => 'Não há vagas disponíveis para esse evento!'];
@@ -91,7 +111,7 @@ class Inscricao
         }
     }
 
-    public function cancelaInscricao()
+    public function cancelaInscricao($tipoSimposista)
     {
         $consultaInscricao = self::listarPorInscricao($this->idEvento, $this->idSimposista);
         if (count($consultaInscricao) > 0) {
@@ -104,6 +124,18 @@ class Inscricao
             $stmt->bindValue(':urlQrCode', $this->urlQrCode);
             $stmt->bindValue(':id', $this->id);
             $stmt->execute();
+
+            $campoAtualizar = 'qtdInscritos';
+            if($tipoSimposista == 2) {
+                $campoAtualizar = 'qtdInscritosExternos';
+            }
+
+            $queryUpdate = "UPDATE evento SET $campoAtualizar = $campoAtualizar - 1 WHERE idEvento = :id";
+//            $conexao = ConexaoUser::pegarConexao();
+            $stmt = $conexao->prepare($queryUpdate);
+            $stmt->bindValue(':id', $this->idEvento);
+            $stmt->execute();
+
             return true;
         } else {
             return false;
@@ -140,7 +172,7 @@ class Inscricao
         $stmt->execute();
         $dadosEvento = $stmt->fetch();
 
-        $resultadoInscritos['qtdInscritos'] = $dadosEvento['qtdTotal'];
+        $resultadoInscritos['qtdInscritos'] = $dadosEvento['qtdInscritos'];
         $resultadoInscritos['qtdTotal'] = $dadosEvento['qtdTotal'];
         $resultadoInscritos['qtdInscritosExternos'] = $dadosEvento['qtdInscritosExternos'];
         $resultadoInscritos['qtdTotalExternos'] = $dadosEvento['qtdTotalExternos'];
@@ -148,9 +180,9 @@ class Inscricao
         return $resultadoInscritos;
     }
 
-    public function verificaVagas($resultadoInscritos)
+    public function verificaVagas($resultadoInscritos, $tipoSimposista)
     {
-        $tipoCadastro = $_SESSION['tipoCadastro'];
+        $tipoCadastro = $tipoSimposista;
         $retorno = true;
 
         if ($tipoCadastro == 1) {

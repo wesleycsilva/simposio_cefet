@@ -77,7 +77,7 @@ function validaMatricula($matricula)
     ];
 
     $arrayMatriculaSegundaChamada = [
-        '20151', '20152', '20161', '20162', '20171', '20172', '20181', '20182', '20191', '20192'
+        '20151', '20152', '20161', '20162', '20171', '20172', '20181', '20182', '20183', '20191', '20192'
     ];
 
     $data = strtotime(date("Y-m-d"));
@@ -87,8 +87,7 @@ function validaMatricula($matricula)
     #20151XXXXXXX - 4 primeiros dígitos = ano da matrícula
     #20151XXXXXXX - 5° = semestre letivo (1 ou 2)
 
-
-    if (strlen($matricula) != 12) {
+    if (strlen($matricula) < 11 || strlen($matricula) >  12) {
         return ['status' => 400, 'mensagem' => 'Erro! Quantidade de caracteres da matricula errado'];
     }
 

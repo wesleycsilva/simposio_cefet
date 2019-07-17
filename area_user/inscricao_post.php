@@ -6,6 +6,7 @@ try {
     $idEvento = $_POST['idEvento'];
     $idSimposista = $_POST['idSimposista'];
     $controle = $_POST['controle'];
+    $tipoSimposista = $_POST['tipoSimposista'];
 
     $inscricao = new Inscricao();
 
@@ -15,13 +16,19 @@ try {
 
     switch ($controle) {
         case "inscrever":
-            $retorno = inserir($inscricao);
+            $retorno = inserir($inscricao, $tipoSimposista);
             break;
         case "cancelar":
-            $retorno = cancelarInscricao($inscricao);
+            $retorno = cancelarInscricao($inscricao, $tipoSimposista);
             break;
         default:
             break;
+    }
+
+    if ($retorno['status'] != 200) {
+        echo $retorno['mensagem'];
+    } else {
+        echo $retorno['status'];
     }
 
 
@@ -29,17 +36,17 @@ try {
     Erro::trataErro($e);
 }
 
-function inserir($inscricao)
+function inserir($inscricao, $tipoSimposista)
 {
     $inscricao->situacao = 1;
-    $result = $inscricao->inserir();
+    $result = $inscricao->inserir($tipoSimposista);
     return $result;
 }
 
 
-function cancelarInscricao($inscricao)
+function cancelarInscricao($inscricao, $tipoSimposista)
 {
     $inscricao->situacao = 2;
-    $result = $inscricao->cancelaInscricao();
+    $result = $inscricao->cancelaInscricao($tipoSimposista);
     return $result;
 }

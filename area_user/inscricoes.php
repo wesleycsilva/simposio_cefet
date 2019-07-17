@@ -7,6 +7,7 @@ try {
     $lista = Evento::listar();
     $format = new FuncaoUser();
     validaLogin();
+    var_dump($_SESSION);
 
 } catch (Exception $e) {
     Erro::trataErro($e);
@@ -93,7 +94,7 @@ try {
                                             endif; ?>
                                             <button type="button"
                                                     class="btn btn-outline-primary" <?= $controleInscricao ?>
-                                                    onclick="inscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
+                                                    onclick="inscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>);">
                                                 <i class="fa fa-picture-o"></i>&nbsp; INSCREVER
                                             </button>
                                             <button type="button" class="btn btn-outline-success"
@@ -102,7 +103,7 @@ try {
                                             </button>
                                             <button type="button"
                                                     class="btn btn-outline-danger" <?= $controleCancelar ?>
-                                                    onclick="cancelarInscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
+                                                    onclick="cancelarInscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>);">
                                                 <i class="fa fa-times-circle-o"></i>&nbsp; CANCELAR INSCRIÇÃO
                                             </button>
                                         </div>
@@ -128,7 +129,7 @@ try {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" rel="stylesheet">
     <!-- END PAGE CONTAINER-->
     <script>
-        function inscricao(idEvento, idSimposista) {
+        function inscricao(idEvento, idSimposista, tipoSimposista) {
             swal({
                     title: "Atenção",
                     text: "Deseja se inscrever neste evento?",
@@ -148,13 +149,18 @@ try {
                             data: {
                                 idEvento: idEvento,
                                 idSimposista: idSimposista,
+                                tipoSimposista: tipoSimposista,
                                 controle: "inscrever"
                             }
                         }).done(function (msg) {
-                            swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
-                            setInterval(function () {
-                                window.location.reload(); // this will run after every 5 seconds
-                            }, 3000);
+                            if(msg != 200) {
+                                swal("Atenção!", msg, "error");
+                            } else {
+                                swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
+                                setInterval(function () {
+                                    window.location.reload();
+                                }, 3000);
+                            }
                         })
 
                     } else {
@@ -163,7 +169,7 @@ try {
                 });
         }
 
-        function cancelarInscricao(idEvento, idSimposista) {
+        function cancelarInscricao(idEvento, idSimposista, tipoSimposista) {
 
             swal({
                     title: "Atenção",
@@ -184,12 +190,13 @@ try {
                             data: {
                                 idEvento: idEvento,
                                 idSimposista: idSimposista,
+                                tipoSimposista: tipoSimposista,
                                 controle: "cancelar"
                             },
                         }).done(function (msg) {
                             swal("Deletado!", "Insrição excluida com sucesso!", "success");
                             setInterval(function () {
-                                window.location.reload(); // this will run after every 5 seconds
+                                window.location.reload();
                             }, 3000);
                         })
                     } else {
