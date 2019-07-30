@@ -7,13 +7,11 @@ try {
     $lista = Evento::listar();
     $format = new FuncaoUser();
     validaLogin();
-    var_dump($_SESSION);
 
 } catch (Exception $e) {
     Erro::trataErro($e);
 }
 ?>
-    ?>
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <?php include "header_user.php" ?>
@@ -37,6 +35,10 @@ try {
                                         if ($linha['descricao'] != "") {
                                             list($palestrante, $nota) = explode("-", $linha['informacoes']);
                                         }
+                                        $descricao = "'".utf8_encode($linha['descricao'])."'";
+                                        $palestranteString = "'".utf8_encode($palestrante)."'";
+                                        $horarioInicioString = "'".$horarioInicio."'";
+                                        $horariFimString = "'".$horariFim."'";
                                         ?>
                                         <h4><?= $dia ?> de Agosto de <?= $ano ?>
                                             - <?= utf8_encode($linha['titulo']) ?></h4>
@@ -94,13 +96,17 @@ try {
                                             endif; ?>
                                             <button type="button"
                                                     class="btn btn-outline-primary" <?= $controleInscricao ?>
-                                                    onclick="inscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>);">
+                                                    onclick="inscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $dadosInscricao['idInscricao'] ?>);">
                                                 <i class="fa fa-picture-o"></i>&nbsp; INSCREVER
                                             </button>
+                                            <?php if ($dadosInscricao['idInscricao'] != null) :
+                                                if ($dadosInscricao['situacao'] == 1) :?>
                                             <button type="button" class="btn btn-outline-success"
-                                                    onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>);">
+                                                    onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>, <?php echo $descricao ?>, <?php echo $palestranteString ?>, <?php echo $horarioInicioString ?>, <?php echo $horariFimString?>);">
                                                 <i class="fa fa-qrcode"></i>&nbsp; GERAR QRCODE
                                             </button>
+                                                <?php endif;
+                                            endif;?>
                                             <button type="button"
                                                     class="btn btn-outline-danger" <?= $controleCancelar ?>
                                                     onclick="cancelarInscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>);">
@@ -110,7 +116,12 @@ try {
                                     </div>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+                        <?php
+                            unset($descricao);
+                            unset($palestranteString);
+                            unset($horarioInicioString);
+                            unset($horariFimString);
+                        endforeach; ?>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -125,7 +136,54 @@ try {
         </div>
     </div>
 
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        I Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações Tecnológicas
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-image">
+                        <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Palestra</th>
+                            <th scope="col">Horário</th>
+                            <th scope="col">Palestrante</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="w-25">
+                                <div id="qrcode"></div>
+                                <!--                                    <img id="aaaa" src="" class="img-fluid img-thumbnail" alt="Sheep">-->
+                            </td>
+                            <td id="palestra"></td>
+                            <td id="horario"></td>
+                            <td id="palestrante"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-end">
+                        <h5><span class="price text-info">Atenção:</span> não esqueça de levar o QRcode no dia do evento.</h5>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success">Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="vendor/sweetalert/sweetalert.js"></script>
+    <script src="js/qrcode.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" rel="stylesheet">
     <!-- END PAGE CONTAINER-->
     <script>
@@ -205,8 +263,21 @@ try {
                 });
         }
 
-        function gerarQrCode(idEvento, idSimposista) {
-            swal("QrCode", "Disponível a partir do dia 01/08/2019!", "info")
+        function gerarQrCode(idEvento, idSimposista, idInscricao, descricao, palestrante, horarioInicial, HorarioFinal) {
+            $('#palestra').text(descricao);
+            $('#palestrante').text(palestrante);
+            $('#horario').text(horarioInicial + ' as ' + HorarioFinal + ' horas');
+            $('#qrcode').empty();
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "http://simposioengenhariacivil.com.br/confirma_presenca.php?idEvento="+idEvento+"&idSimposista="+idSimposista+"&idInscricao="+idInscricao,
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+            $('#cartModal').modal('show');
+            // swal("QrCode", "Disponível a partir do dia 01/08/2019!", "info")
         }
 
     </script>

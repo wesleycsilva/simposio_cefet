@@ -70,7 +70,7 @@ function validaMatricula($matricula)
     $dataInicioSegundaChamada = strtotime('2019-07-15');
     $dataFinalSegundaChamada = strtotime('2019-07-21');
     $dataInicioTerceiraChamada = strtotime('2019-07-22');
-    $dataFinalTerceiraChamada = strtotime('2019-07-31');
+    $dataFinalTerceiraChamada = strtotime('2019-08-07');
 
     $arrayMatriculaPrimeiraChamada = [
         '20151', '20152', '20161', '20162', '20171'
@@ -93,6 +93,7 @@ function validaMatricula($matricula)
 
     $anoMatricula = (string)substr($matricula, 0, 5);
 
+    /*
     if ($data >= $dataInicioPrimeiraChamada && $data <= $dataFinalPrimeiraChamada) {
         if (!in_array($anoMatricula, $arrayMatriculaPrimeiraChamada)) {
             return ['status' => 400, 'mensagem' => 'Erro! Fora do período de inscrição para sua matrícula. Aguarde a data correta!'];
@@ -112,6 +113,7 @@ function validaMatricula($matricula)
     } else {
         return ['status' => 400, 'mensagem' => 'Erro! Fora do prazo para inscrição'];
     }
+    */
     return ['status' => 200, 'mensagem' => 'OK'];
 
 }
