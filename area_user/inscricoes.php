@@ -193,43 +193,48 @@ try {
     <!-- END PAGE CONTAINER-->
     <script>
         function inscricao(idEvento, idSimposista, tipoSimposista) {
-            swal({
-                    title: "Atenção",
-                    text: "Deseja se inscrever neste evento?",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonClass: "btn-success",
-                    confirmButtonText: "Sim, me inscrever!",
-                    cancelButtonText: "Não, cancelar!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $.ajax({
-                            url: "inscricao_post.php",
-                            type: 'post',
-                            data: {
-                                idEvento: idEvento,
-                                idSimposista: idSimposista,
-                                tipoSimposista: tipoSimposista,
-                                controle: "inscrever"
-                            }
-                        }).done(function (msg) {
-                            if (msg != 200) {
-                                swal("Atenção!", msg, "error");
-                            } else {
-                                swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
-                                setInterval(function () {
-                                    window.location.reload();
-                                }, 3000);
-                            }
-                        })
 
-                    } else {
-                        swal("Cancelar", "Sua inscrição não foi processada!", "error");
-                    }
-                });
+            if (idEvento == 3 || idEvento == 4) {
+                swal("Atenção!", "Não há mais vagas disponíveis para esse evento!", "warning");
+            } else {
+                swal({
+                        title: "Atenção",
+                        text: "Deseja se inscrever neste evento?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: "btn-success",
+                        confirmButtonText: "Sim, me inscrever!",
+                        cancelButtonText: "Não, cancelar!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            $.ajax({
+                                url: "inscricao_post.php",
+                                type: 'post',
+                                data: {
+                                    idEvento: idEvento,
+                                    idSimposista: idSimposista,
+                                    tipoSimposista: tipoSimposista,
+                                    controle: "inscrever"
+                                }
+                            }).done(function (msg) {
+                                if (msg != 200) {
+                                    swal("Atenção!", msg, "error");
+                                } else {
+                                    swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
+                                    setInterval(function () {
+                                        window.location.reload();
+                                    }, 3000);
+                                }
+                            })
+
+                        } else {
+                            swal("Cancelar", "Sua inscrição não foi processada!", "error");
+                        }
+                    });
+            }
         }
 
         function cancelarInscricao(idEvento, idSimposista, tipoSimposista) {
