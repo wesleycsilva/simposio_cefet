@@ -27,7 +27,7 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 <script src="js/userloginform.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.0/jQuery.print.min.js" type="text/JavaScript"></script>
 
 </body>
 

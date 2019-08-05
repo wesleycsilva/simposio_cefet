@@ -38,6 +38,8 @@ try {
                                             $palestranteString = "'" . utf8_encode($palestrante) . "'";
                                         }
                                         $descricao = "'" . utf8_encode($linha['descricao']) . "'";
+                                        $dataEvento = date('d/m/Y', strtotime($dataInicio));
+                                        $dataString = "'" . $dataEvento . "'";
                                         $horarioInicioString = "'" . $horarioInicio . "'";
                                         $horariFimString = "'" . $horariFim . "'";
                                         $titulo = "'" . utf8_encode($linha['titulo']) . "'";
@@ -104,7 +106,7 @@ try {
                                             <?php if ($dadosInscricao['idInscricao'] != null) :
                                                 if ($dadosInscricao['situacao'] == 1) :?>
                                                     <button type="button" class="btn btn-outline-success"
-                                                            onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>, <?php echo $descricao ?>, <?php echo $palestranteString ?>, <?php echo $horarioInicioString ?>, <?php echo $horariFimString ?>, <?php echo $titulo ?>);">
+                                                            onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>, <?php echo $descricao ?>, <?php echo $palestranteString ?>, <?php echo $horarioInicioString ?>, <?php echo $horariFimString ?>, <?php echo $titulo ?>, <?php echo $dataString ?>);">
                                                         <i class="fa fa-qrcode"></i>&nbsp; GERAR QRCODE
                                                     </button>
                                                 <?php endif;
@@ -148,7 +150,7 @@ try {
                         I Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações Tecnológicas
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span id="spanClose" aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -157,7 +159,6 @@ try {
                         <tr>
                             <th scope="col"></th>
                             <th id="labelPalestra" scope="col"></th>
-                            <th scope="col">Horário</th>
                             <th id="labelPalestrante" scope="col">Palestrante</th>
                         </tr>
                         </thead>
@@ -165,22 +166,24 @@ try {
                         <tr>
                             <td class="w-25">
                                 <div id="qrcode"></div>
-                                <!--                                    <img id="aaaa" src="" class="img-fluid img-thumbnail" alt="Sheep">-->
                             </td>
                             <td id="palestra"></td>
-                            <td id="horario"></td>
                             <td id="palestrante"></td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-end">
-                        <h5><span class="price text-info">Atenção:</span> não esqueça de levar o QRcode no dia do
+                        <h4 id="dadosAgenda"></h4>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-end">
+                        <h5><span class="price text-warning">*Atenção:</span> não esqueça de levar o QRcode no dia do
                             evento.</h5>
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-success" onclick="imprimir()">Imprimir</button>
+                    <button id="modalBtnClose" type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button id="modalBtnPrint" type="button" class="btn btn-success" onclick="imprimir()">Imprimir</button>
                 </div>
             </div>
         </div>
@@ -188,7 +191,6 @@ try {
 
     <script src="vendor/sweetalert/sweetalert.js"></script>
     <script src="js/qrcode.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" rel="stylesheet"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" rel="stylesheet">
     <!-- END PAGE CONTAINER-->
     <script>
@@ -273,20 +275,28 @@ try {
                 });
         }
 
-        function gerarQrCode(idEvento, idSimposista, idInscricao, descricao, palestrante, horarioInicial, HorarioFinal, titulo) {
+        function gerarQrCode(idEvento, idSimposista, idInscricao, descricao, palestrante, horarioInicial, HorarioFinal, titulo, dataString) {
             $('#labelPalestra').text('Palestra');
+            $('#labelPalestrante').show();
+            $('#labelPalestrante').text('Palestrante');
+            $('#palestra').text(descricao);
+            $('#data').text(dataString);
+            $('#palestrante').text(palestrante);
+            var horario = horarioInicial + ' as ' + HorarioFinal + ' horas';
+            $('#qrcode').empty();
+
+            $('#dadosAgenda').html('<span id="dataEvento" class="price text-info">Data:</span> ' + dataString + ' <br><span id="horarioEvento" class="price text-info">Horário:</span> ' + horario );
+
             if (descricao == '') {
                 $('#labelPalestra').text('Visita Técnica');
             }
-            $('#palestra').text(descricao);
-            $('#palestrante').text(palestrante);
+
             if (palestrante == false) {
                 $('#palestrante').text('');
                 $('#palestra').text(titulo);
                 $('#labelPalestrante').hide();
             }
-            $('#horario').text(horarioInicial + ' as ' + HorarioFinal + ' horas');
-            $('#qrcode').empty();
+
             var qrcode = new QRCode(document.getElementById("qrcode"), {
                 text: "http://simposioengenhariacivil.com.br/confirma_presenca.php?idEvento=" + idEvento + "&idSimposista=" + idSimposista + "&idInscricao=" + idInscricao,
                 width: 128,
@@ -300,46 +310,20 @@ try {
         }
 
         function imprimir() {
-            var pdf = new jsPDF('p', 'pt', 'letter');
-            // source can be HTML-formatted string, or a reference
-            // to an actual DOM element from which the text will be scraped.
-            source = $('#content')[0];
-
-            // we support special element handlers. Register them with jQuery-style
-            // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
-            // There is no support for any other type of selectors
-            // (class, of compound) at this time.
-            specialElementHandlers = {
-                // element with id of "bypass" - jQuery style selector
-                '#bypassme': function (element, renderer) {
-                    // true = "handled elsewhere, bypass text extraction"
-                    return true
-                }
-            };
-            margins = {
-                top: 80,
-                bottom: 60,
-                left: 40,
-                width: 522
-            };
-            // all coords and widths are in jsPDF instance's declared units
-            // 'inches' in this case
-            pdf.fromHTML(
-                source, // HTML string or DOM elem ref.
-                margins.left, // x coord
-                margins.top, { // y coord
-                    'width': margins.width, // max width of content on PDF
-                    'elementHandlers': specialElementHandlers
-                },
-
-                function (dispose) {
-                    // dispose: object with X, Y of the last line add to the PDF
-                    //          this allow the insertion of new lines after html
-                    pdf.save('Test.pdf');
-                }, margins);
-
-// Output as Data URI
-            pdf.save('Test.pdf');
+            $("#cartModal").print({
+                globalStyles: true,
+                mediaPrint: false,
+                stylesheet: 'http://localhost:90/simposio_cefet/area_user/css/print.css',
+                noPrintSelector: "#modalBtnClose, #modalBtnPrint, #spanClose",
+                iframe: true,
+                append: null,
+                prepend: null,
+                manuallyCopyFormValues: true,
+                deferred: $.Deferred(),
+                timeout: 750,
+                title: 'I Simpósio de Engenharia Civil: Materiais, Sustentabilidade e Inovações Tecnológicas',
+                doctype: '<!doctype html>'
+            });
         }
 
     </script>
