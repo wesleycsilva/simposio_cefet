@@ -6,7 +6,11 @@ try {
     $idEvento = $_POST['idEvento'];
     $idSimposista = $_POST['idSimposista'];
     $controle = $_POST['controle'];
-    $tipoSimposista = $_POST['tipoSimposista'];
+    $tipoSimposista = 1;
+
+    if(!empty($_POST['tipoSimposista'])) {
+        $tipoSimposista = $_POST['tipoSimposista'];
+    }
 
     $inscricao = new Inscricao();
 

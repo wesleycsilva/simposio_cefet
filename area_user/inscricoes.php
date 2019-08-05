@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <?php include "menu_user.php" ?>
 <?php require_once 'global_user.php' ?>
 <?php require_once 'valida_login.php' ?>
@@ -17,7 +17,7 @@ try {
         <?php include "header_user.php" ?>
 
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content" id="conteudo">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
@@ -32,13 +32,15 @@ try {
                                         list($dataInicio, $horarioInicio) = explode(" ", $linha['dataHoraInicio']);
                                         list($dataFim, $horariFim) = explode(" ", $linha['dataHoraFinal']);
                                         list($ano, $mes, $dia) = explode("-", $linha['data']);
+                                        $palestranteString = 'false';
                                         if ($linha['descricao'] != "") {
                                             list($palestrante, $nota) = explode("-", $linha['informacoes']);
+                                            $palestranteString = "'" . utf8_encode($palestrante) . "'";
                                         }
-                                        $descricao = "'".utf8_encode($linha['descricao'])."'";
-                                        $palestranteString = "'".utf8_encode($palestrante)."'";
-                                        $horarioInicioString = "'".$horarioInicio."'";
-                                        $horariFimString = "'".$horariFim."'";
+                                        $descricao = "'" . utf8_encode($linha['descricao']) . "'";
+                                        $horarioInicioString = "'" . $horarioInicio . "'";
+                                        $horariFimString = "'" . $horariFim . "'";
+                                        $titulo = "'" . utf8_encode($linha['titulo']) . "'";
                                         ?>
                                         <h4><?= $dia ?> de Agosto de <?= $ano ?>
                                             - <?= utf8_encode($linha['titulo']) ?></h4>
@@ -101,12 +103,12 @@ try {
                                             </button>
                                             <?php if ($dadosInscricao['idInscricao'] != null) :
                                                 if ($dadosInscricao['situacao'] == 1) :?>
-                                            <button type="button" class="btn btn-outline-success"
-                                                    onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>, <?php echo $descricao ?>, <?php echo $palestranteString ?>, <?php echo $horarioInicioString ?>, <?php echo $horariFimString?>);">
-                                                <i class="fa fa-qrcode"></i>&nbsp; GERAR QRCODE
-                                            </button>
+                                                    <button type="button" class="btn btn-outline-success"
+                                                            onclick="gerarQrCode(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>, <?php echo $descricao ?>, <?php echo $palestranteString ?>, <?php echo $horarioInicioString ?>, <?php echo $horariFimString ?>, <?php echo $titulo ?>);">
+                                                        <i class="fa fa-qrcode"></i>&nbsp; GERAR QRCODE
+                                                    </button>
                                                 <?php endif;
-                                            endif;?>
+                                            endif; ?>
                                             <button type="button"
                                                     class="btn btn-outline-danger" <?= $controleCancelar ?>
                                                     onclick="cancelarInscricao(<?php echo $linha['idEvento'] ?>, <?php echo $_SESSION['idSimposista'] ?>, <?php echo $_SESSION['tipoSimposista'] ?>);">
@@ -116,11 +118,12 @@ try {
                                     </div>
                                 </div>
                             </div>
-                        <?php
+                            <?php
                             unset($descricao);
                             unset($palestranteString);
                             unset($horarioInicioString);
                             unset($horariFimString);
+                            unset($palestrante);
                         endforeach; ?>
                     </div>
                     <div class="row">
@@ -153,9 +156,9 @@ try {
                         <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">Palestra</th>
+                            <th id="labelPalestra" scope="col"></th>
                             <th scope="col">Horário</th>
-                            <th scope="col">Palestrante</th>
+                            <th id="labelPalestrante" scope="col">Palestrante</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -171,12 +174,13 @@ try {
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-end">
-                        <h5><span class="price text-info">Atenção:</span> não esqueça de levar o QRcode no dia do evento.</h5>
+                        <h5><span class="price text-info">Atenção:</span> não esqueça de levar o QRcode no dia do
+                            evento.</h5>
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-between">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-success">Imprimir</button>
+                    <button type="button" class="btn btn-success" onclick="imprimir()">Imprimir</button>
                 </div>
             </div>
         </div>
@@ -184,6 +188,7 @@ try {
 
     <script src="vendor/sweetalert/sweetalert.js"></script>
     <script src="js/qrcode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" rel="stylesheet"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" rel="stylesheet">
     <!-- END PAGE CONTAINER-->
     <script>
@@ -211,7 +216,7 @@ try {
                                 controle: "inscrever"
                             }
                         }).done(function (msg) {
-                            if(msg != 200) {
+                            if (msg != 200) {
                                 swal("Atenção!", msg, "error");
                             } else {
                                 swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
@@ -263,21 +268,73 @@ try {
                 });
         }
 
-        function gerarQrCode(idEvento, idSimposista, idInscricao, descricao, palestrante, horarioInicial, HorarioFinal) {
+        function gerarQrCode(idEvento, idSimposista, idInscricao, descricao, palestrante, horarioInicial, HorarioFinal, titulo) {
+            $('#labelPalestra').text('Palestra');
+            if (descricao == '') {
+                $('#labelPalestra').text('Visita Técnica');
+            }
             $('#palestra').text(descricao);
             $('#palestrante').text(palestrante);
+            if (palestrante == false) {
+                $('#palestrante').text('');
+                $('#palestra').text(titulo);
+                $('#labelPalestrante').hide();
+            }
             $('#horario').text(horarioInicial + ' as ' + HorarioFinal + ' horas');
             $('#qrcode').empty();
             var qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: "http://simposioengenhariacivil.com.br/confirma_presenca.php?idEvento="+idEvento+"&idSimposista="+idSimposista+"&idInscricao="+idInscricao,
+                text: "http://simposioengenhariacivil.com.br/confirma_presenca.php?idEvento=" + idEvento + "&idSimposista=" + idSimposista + "&idInscricao=" + idInscricao,
                 width: 128,
                 height: 128,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
             });
             $('#cartModal').modal('show');
             // swal("QrCode", "Disponível a partir do dia 01/08/2019!", "info")
+        }
+
+        function imprimir() {
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            // source can be HTML-formatted string, or a reference
+            // to an actual DOM element from which the text will be scraped.
+            source = $('#content')[0];
+
+            // we support special element handlers. Register them with jQuery-style
+            // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+            // There is no support for any other type of selectors
+            // (class, of compound) at this time.
+            specialElementHandlers = {
+                // element with id of "bypass" - jQuery style selector
+                '#bypassme': function (element, renderer) {
+                    // true = "handled elsewhere, bypass text extraction"
+                    return true
+                }
+            };
+            margins = {
+                top: 80,
+                bottom: 60,
+                left: 40,
+                width: 522
+            };
+            // all coords and widths are in jsPDF instance's declared units
+            // 'inches' in this case
+            pdf.fromHTML(
+                source, // HTML string or DOM elem ref.
+                margins.left, // x coord
+                margins.top, { // y coord
+                    'width': margins.width, // max width of content on PDF
+                    'elementHandlers': specialElementHandlers
+                },
+
+                function (dispose) {
+                    // dispose: object with X, Y of the last line add to the PDF
+                    //          this allow the insertion of new lines after html
+                    pdf.save('Test.pdf');
+                }, margins);
+
+// Output as Data URI
+            pdf.save('Test.pdf');
         }
 
     </script>

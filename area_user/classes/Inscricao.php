@@ -131,6 +131,7 @@ class Inscricao
             }
 
             $queryUpdate = "UPDATE evento SET $campoAtualizar = $campoAtualizar - 1 WHERE idEvento = :id";
+//            var_dump($queryUpdate, $this->idEvento);exit;
 //            $conexao = ConexaoUser::pegarConexao();
             $stmt = $conexao->prepare($queryUpdate);
             $stmt->bindValue(':id', $this->idEvento);
