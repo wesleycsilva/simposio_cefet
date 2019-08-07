@@ -58,7 +58,7 @@ class Inscricao
         $consultaInscricao = self::listarPorInscricao($this->idEvento, $this->idSimposista);
 
         $campoAtualizar = 'qtdInscritos';
-        if($tipoSimposista == 2) {
+        if ($tipoSimposista == 2) {
             $campoAtualizar = 'qtdInscritosExternos';
         }
 
@@ -126,7 +126,7 @@ class Inscricao
             $stmt->execute();
 
             $campoAtualizar = 'qtdInscritos';
-            if($tipoSimposista == 2) {
+            if ($tipoSimposista == 2) {
                 $campoAtualizar = 'qtdInscritosExternos';
             }
 
@@ -220,5 +220,53 @@ class Inscricao
         }
 
         return $dadosInscricao;
+    }
+
+    public function consultaInscricao($idInscricao, $idEvento, $idSimposista)
+    {
+        $query = "SELECT * FROM inscricao WHERE idInscricao = :idInscricao and idEvento = :idEvento and idSimposista = :idSimposista";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":idInscricao", $idInscricao);
+        $stmt->bindValue(':idEvento', $idEvento);
+        $stmt->bindValue(':idSimposista', $idSimposista);
+        $stmt->execute();
+        $inscricao = $stmt->fetch();
+
+        if (is_array($inscricao)) {
+            $dadosInscricao['idInscricao'] = $inscricao['idInscricao'];
+            $dadosInscricao['idEvento'] = $inscricao['idEvento'];
+            $dadosInscricao['idSimposista'] = $inscricao['idSimposista'];
+            $dadosInscricao['situacao'] = $inscricao['situacao'];
+            $dadosInscricao['urlQrCode'] = $inscricao['urlQrCode'];
+        } else {
+            $dadosInscricao['idInscricao'] = null;
+        }
+
+        return $dadosInscricao;
+    }
+
+    public static function pesquisarInscricao($idInscricao)
+    {
+        $query = "SELECT idInscricao, idEvento, idSimposista, situacao FROM inscricao WHERE idInscricao = :idInsc";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":idInsc", $idInscricao, PDO::PARAM_INT);
+        $stmt->execute();
+        $res = $stmt->fetch();
+        return $res;
+    }
+
+    public function confirmaSituacao($idInscricao, $situacao)
+    {
+        $query = "UPDATE inscricao SET situacao = :situacao WHERE idInscricao = :idInscricao";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":idInscricao", $idInscricao);
+        $stmt->bindValue(':situacao', $situacao);
+        $stmt->execute();
+
+        return ['status' => 200, 'mensagem' => 'Presença confirmada com sucesso!'];
+
     }
 }

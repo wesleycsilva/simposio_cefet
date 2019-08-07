@@ -61,6 +61,6 @@ class Evento
         $this->qtdInscritos = $linha['qtdInscritos'];
         $this->qtdTotal = $linha['qtdTotal'];
         $this->dataHoraInicio = $linha['dataHoraInicio'];;
-        $this->dataHoraFinal = $linha['$dataHoraFinal'];
+        $this->dataHoraFinal = $linha['dataHoraFinal'];
     }
 }

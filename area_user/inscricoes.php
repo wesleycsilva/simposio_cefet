@@ -189,6 +189,8 @@ try {
         </div>
     </div>
 
+    <div class="printable"></div>
+
     <script src="vendor/sweetalert/sweetalert.js"></script>
     <script src="js/qrcode.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" rel="stylesheet">
@@ -196,47 +198,8 @@ try {
     <script>
         function inscricao(idEvento, idSimposista, tipoSimposista) {
 
-            if (idEvento == 3 || idEvento == 4) {
-                swal("Atenção!", "Não há mais vagas disponíveis para esse evento!", "warning");
-            } else {
-                swal({
-                        title: "Atenção",
-                        text: "Deseja se inscrever neste evento?",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonClass: "btn-success",
-                        confirmButtonText: "Sim, me inscrever!",
-                        cancelButtonText: "Não, cancelar!",
-                        closeOnConfirm: false,
-                        closeOnCancel: false
-                    },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            $.ajax({
-                                url: "inscricao_post.php",
-                                type: 'post',
-                                data: {
-                                    idEvento: idEvento,
-                                    idSimposista: idSimposista,
-                                    tipoSimposista: tipoSimposista,
-                                    controle: "inscrever"
-                                }
-                            }).done(function (msg) {
-                                if (msg != 200) {
-                                    swal("Atenção!", msg, "error");
-                                } else {
-                                    swal("Confirmado", "Inscrição foi relizada com sucesso!", "success");
-                                    setInterval(function () {
-                                        window.location.reload();
-                                    }, 3000);
-                                }
-                            })
+            swal("Atenção!", "Inscrições Encerradas!", "warning");
 
-                        } else {
-                            swal("Cancelar", "Sua inscrição não foi processada!", "error");
-                        }
-                    });
-            }
         }
 
         function cancelarInscricao(idEvento, idSimposista, tipoSimposista) {
@@ -310,10 +273,13 @@ try {
         }
 
         function imprimir() {
-            $("#cartModal").print({
+
+            $(".printable").html($("#cartModal").html());
+
+            $(".printable").print({
                 globalStyles: true,
                 mediaPrint: false,
-                stylesheet: 'http://simposioengenhariacivil.com.br/area_user/css/print.css',
+                stylesheet: 'http://localhost:90/simposio_cefet/area_user/css/print.css',
                 noPrintSelector: "#modalBtnClose, #modalBtnPrint, #spanClose",
                 iframe: true,
                 append: null,
