@@ -313,7 +313,7 @@ try {
             $("#cartModal").print({
                 globalStyles: true,
                 mediaPrint: false,
-                stylesheet: 'http://localhost:90/simposio_cefet/area_user/css/print.css',
+                stylesheet: 'http://simposioengenhariacivil.com.br/area_user/css/print.css',
                 noPrintSelector: "#modalBtnClose, #modalBtnPrint, #spanClose",
                 iframe: true,
                 append: null,
