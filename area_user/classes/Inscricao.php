@@ -1,4 +1,5 @@
 <?php
+require_once("ConexaoUser.php");
 
 class Inscricao
 {
@@ -220,5 +221,49 @@ class Inscricao
         }
 
         return $dadosInscricao;
+    }
+
+    public function consultaInscricao($idInscricao)
+    {
+        $query = "SELECT * FROM inscricao WHERE idInscricao = :i";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":i", $idInscricao);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function pesquisarInscricao($idInscricao)
+    {
+        $query = "SELECT idInscricao, idEvento, idSimposista, situacao FROM inscricao WHERE idInscricao = :idInsc";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":idInsc", $idInscricao, PDO::PARAM_INT);
+        $stmt->execute();
+        $res = $stmt->fetch();
+        return $res;
+    }
+
+    public function confirmaSituacao($idInscricao)
+    {
+        $query = "UPDATE inscricao SET idEvento = :idEvento, idSimposista = :idSimposista, situacao = :situacao, urlQrCode = :urlQrCode WHERE idInscricao = :idInsc";
+
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":idInsc", $idInscricao);
+        $stmt->bindValue(':idEvento', $this->idEvento);
+        $stmt->bindValue(':idSimposista', $this->idSimposista);
+        $stmt->bindValue(':situacao', $this->situacao);
+        $stmt->bindValue(':urlQrCode', $this->urlQrCode);
+        $stmt->execute();
+
+        //return $stmt; 
+        return ['status' => 200, 'mensagem' => 'Inscrição foi atualizadaa com sucesso!'];
+         
     }
 }

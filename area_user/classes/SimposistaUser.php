@@ -237,6 +237,17 @@ class SimposistaUser
         }
     }
 
+    public static function pesquisarSimposista($idSimposista)
+    {
+        $query = "SELECT nome FROM simposista WHERE idSimposista = :idSimp ";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(":idSimp", $idSimposista, PDO::PARAM_INT);
+        $stmt->execute();
+        $res = $stmt->fetch();
+        return $res;
+    }
+
     public function getNome()
     {
         return $this->nome;

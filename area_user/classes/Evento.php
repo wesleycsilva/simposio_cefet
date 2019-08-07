@@ -63,4 +63,14 @@ class Evento
         $this->dataHoraInicio = $linha['dataHoraInicio'];;
         $this->dataHoraFinal = $linha['$dataHoraFinal'];
     }
+
+     public static function pesquisarEvento($idevento)
+    {
+        $query = "SELECT titulo, descricao, data, informacoes, local, dataHoraInicio FROM evento WHERE idEvento = :idevento";
+        $conexao = ConexaoUser::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':idevento', $idevento);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
